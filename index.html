@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Photonix 7 — hiperdeportivo eléctrico</title>
+    <meta name="description"
+        content="Photonix 7: la síntesis perfecta entre ingeniería extrema y diseño emocional. Un hipercar eléctrico nacido en Pénjamo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Los nuevos estilos (mejoras) se añadirán al final del archivo CSS */
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container" id="loader">
+        <div class="loader">
+            <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="chipGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#2d2d2d" />
+                        <stop offset="100%" stop-color="#0f0f0f" />
+                    </linearGradient>
+                    <linearGradient id="textGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#eeeeee" />
+                        <stop offset="100%" stop-color="#888888" />
+                    </linearGradient>
+                    <linearGradient id="pinGradient" x1="1" y1="0" x2="0" y2="0">
+                        <stop offset="0%" stop-color="#bbbbbb" />
+                        <stop offset="50%" stop-color="#888888" />
+                        <stop offset="100%" stop-color="#555555" />
+                    </linearGradient>
+                </defs>
+                <g id="traces">
+                    <path d="M100 100 H200 V210 H326" class="trace-bg" />
+                    <path d="M100 100 H200 V210 H326" class="trace-flow purple" />
+                    <path d="M80 180 H180 V230 H326" class="trace-bg" />
+                    <path d="M80 180 H180 V230 H326" class="trace-flow blue" />
+                    <path d="M60 260 H150 V250 H326" class="trace-bg" />
+                    <path d="M60 260 H150 V250 H326" class="trace-flow yellow" />
+                    <path d="M100 350 H200 V270 H326" class="trace-bg" />
+                    <path d="M100 350 H200 V270 H326" class="trace-flow green" />
+                    <path d="M700 90 H560 V210 H474" class="trace-bg" />
+                    <path d="M700 90 H560 V210 H474" class="trace-flow blue" />
+                    <path d="M740 160 H580 V230 H474" class="trace-bg" />
+                    <path d="M740 160 H580 V230 H474" class="trace-flow green" />
+                    <path d="M720 250 H590 V250 H474" class="trace-bg" />
+                    <path d="M720 250 H590 V250 H474" class="trace-flow red" />
+                    <path d="M680 340 H570 V270 H474" class="trace-bg" />
+                    <path d="M680 340 H570 V270 H474" class="trace-flow yellow" />
+                </g>
+                <rect x="330" y="190" width="140" height="100" rx="20" ry="20" fill="url(#chipGradient)" stroke="#222"
+                    stroke-width="3" filter="drop-shadow(0 0 6px rgba(0,0,0,0.8))" />
+                <g>
+                    <rect x="322" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                    <rect x="322" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                    <rect x="322" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                    <rect x="322" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                </g>
+                <g>
+                    <rect x="470" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                    <rect x="470" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                    <rect x="470" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                    <rect x="470" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2" />
+                </g>
+                <text x="400" y="240" font-family="Arial, sans-serif" font-size="22" fill="url(#textGradient)"
+                    text-anchor="middle" alignment-baseline="middle">Loading</text>
+                <circle cx="100" cy="100" r="5" fill="black" />
+                <circle cx="80" cy="180" r="5" fill="black" />
+                <circle cx="60" cy="260" r="5" fill="black" />
+                <circle cx="100" cy="350" r="5" fill="black" />
+                <circle cx="700" cy="90" r="5" fill="black" />
+                <circle cx="740" cy="160" r="5" fill="black" />
+                <circle cx="720" cy="250" r="5" fill="black" />
+                <circle cx="680" cy="340" r="5" fill="black" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="menu-fullscreen">
+        <div class="menu-bg-overlay"></div>
+        <div class="menu-container">
+            <nav>
+                <ul>
+                    <br>
+                    <li><a href="#narrative" class="menu-link"><span class="menu-index">01</span> narrativa</a></li>
+                    <li><a href="#design" class="menu-link"><span class="menu-index">02</span> diseño</a></li>
+                    <li><a href="#engineering" class="menu-link"><span class="menu-index">03</span> ingeniería</a></li>
+                    <li><a href="#performance" class="menu-link"><span class="menu-index">04</span> rendimiento</a></li>
+                    <li><a href="#metrics" class="menu-link"><span class="menu-index">05</span> métricas</a></li>
+                    <li><a href="#gallery" class="menu-link"><span class="menu-index">06</span> galería</a></li>
+                    <li><a href="#driving" class="menu-link"><span class="menu-index">07</span> conducción</a></li>
+                    <li><a href="#vision" class="menu-link"><span class="menu-index">08</span> visión</a></li>
+                    <li><a href="sobrenosotros.html" class="menu-link"><span class="menu-index">09</span> sobre
+                            nosotros</a></li>
+                    <li><a href="/tienda.html" class="menu-link"><span class="menu-index">10</span> tienda</a></li>
+                </ul>
+            </nav>
+            <div class="menu-footer">
+                <p>© 2026 Photonix 7 — Universidad Politécnica de Pénjamo</p>
+                <div class="menu-social">
+                    <span>IG</span>
+                    <span>FB</span>
+                    <span>YT</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- HERO -->
+        <section id="hero" class="hero fullscreen">
+            <div class="hero-media">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    alt="Photonix 7 visión frontal">
+            </div>
+            <div class="hero-bg-layer"></div>
+            <div class="hero-particles"></div>
+            <div class="hero-grid-overlay"></div>
+            <!-- ========== HERO CON ANIMACIONES ========== -->
+            <section id="hero" class="hero fullscreen">
+                <div class="hero-media">
+                    <img src="img/1.jpg" alt="Photonix 7">
+                </div>
+                <div class="hero-bg-layer"></div>
+                <div class="hero-particles"></div>
+                <div class="hero-grid-overlay"></div>
+
+                <div class="hero-container">
+                    <!-- Badge con fade-up -->
+                    <div class="hero-badge reveal fade-up">
+                        <span>edición limitada · cero emisiones</span>
+                    </div>
+
+                    <!-- Título con fade-up y retraso -->
+                    <h1 class="hero-title reveal fade-up" data-delay="200">
+                        <span class="title-line">Photonix 7</span>
+                        <span class="title-line title-small">el renacimiento eléctrico</span>
+                    </h1>
+
+                    <!-- Estadísticas con fade-up en cascada -->
+                    <div class="hero-stats">
+                        <div class="stat reveal fade-up" data-delay="400">
+                            <span class="stat-number counter" data-target="3.2">0</span><span class="stat-unit">s</span>
+                            <span class="stat-label">0–100 km/h</span>
+                        </div>
+                        <div class="stat reveal fade-up" data-delay="600">
+                            <span class="stat-number counter" data-target="250">0</span><span
+                                class="stat-unit">N·m</span>
+                            <span class="stat-label">par instantáneo</span>
+                        </div>
+                        <div class="stat reveal fade-up" data-delay="800">
+                            <span class="stat-number counter" data-target="91">0</span><span class="stat-unit">%</span>
+                            <span class="stat-label">eficiencia</span>
+                        </div>
+                    </div>
+
+                    <!-- Botones con fade-up y retraso -->
+                    <div class="hero-cta reveal fade-up" data-delay="1000">
+                        <a href="#narrative" class="btn btn-primary"><span>descubrir</span></a>
+                        <a href="#gallery" class="btn btn-outline"><span>configurar</span></a>
+                    </div>
+                </div>
+
+                <!-- Indicador de scroll con animación -->
+                <div class="hero-scroll-indicator reveal fade-up" data-delay="1200">
+                    <span>explorar</span>
+                    <div class="scroll-line"></div>
+                </div>
+
+                <!-- Enlace "Sobre nosotros" a la izquierda (opcional, ya existía) -->
+                <div class="hero-about">
+                    <a href="sobrenosotros.html" class="about-link">
+                        <span>Sobre nosotros</span>
+                        <div class="about-line"></div>
+                    </a>
+                </div>
+            </section>
+            <div class="hero-about">
+                <a href="sobrenosotros.html" class="about-link">
+                    <span>Sobre nosotros</span>
+                    <div class="about-line"></div>
+                </a>
+            </div>
+            <div class="hero-about2">
+                <a href="iproximamente.html" class="about-link2">
+                    <span>Proximamente</span>
+                    <div class="about-line2"></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- NARRATIVA -->
+        <section id="narrative" class="narrative">
+            <div class="section-container">
+                <div class="narrative-grid">
+                    <div class="narrative-content reveal">
+                        <span class="section-tag">01 · génesis</span>
+                        <h2>hecho en Pénjamo,<br>con alma global</h2>
+                        <div class="text-block">
+                            <p>Photonix 7 no es solo un vehículo. Es la declaración de un territorio donde la
+                                mecatrónica y la automotriz convergen para desafiar lo establecido. Concebido por mentes
+                                jóvenes, desarrollado con acero inoxidable, fibra de decisión y soldadura de precisión.
+                                Cada triángulo de su chasis cuenta una historia de estabilidad, cada ángulo aerodinámico
+                                responde a una obsesión: la eficiencia sin concesiones.</p>
+                            <p>El nombre sintetiza tres fuerzas: la <span class="highlight">P</span> de Pénjamo, el
+                                <span class="highlight">fotón</span> como unidad de energía limpia, y la terminación
+                                <span class="highlight">ix</span> que honra nuestras raíces. El 7, la unión de un equipo
+                                que cree que el futuro se construye hoy.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="narrative-visual reveal">
+                        <div class="glass-panel">
+                            <div class="panel-stats">
+                                <div class="stat-item">
+                                    <span class="stat-main counter" data-target="6">0</span>
+                                    <span class="stat-sub">estudiantes</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-main counter" data-target="2">0</span>
+                                    <span class="stat-sub">ingenierías</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-main counter" data-target="1">0</span>
+                                    <span class="stat-sub">propósito</span>
+                                </div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                alt="Equipo trabajando" class="narrative-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISEÑO -->
+        <section id="design" class="design">
+            <div class="section-container">
+                <div class="design-header reveal">
+                    <span class="section-tag">02 · arquitectura</span>
+                    <h2>configuración 3 ruedas<br><span class="heading-accent">estabilidad radical</span></h2>
+                </div>
+                <div class="design-showcase">
+                    <div class="design-dimensions reveal">
+                        <div class="dimension-card">
+                            <span class="dimension-value">2110</span>
+                            <span class="dimension-unit">mm</span>
+                            <span class="dimension-label">largo</span>
+                        </div>
+                        <div class="dimension-card">
+                            <span class="dimension-value">732</span>
+                            <span class="dimension-unit">mm</span>
+                            <span class="dimension-label">ancho</span>
+                        </div>
+                        <div class="dimension-card">
+                            <span class="dimension-value">1040</span>
+                            <span class="dimension-unit">mm</span>
+                            <span class="dimension-label">alto</span>
+                        </div>
+                    </div>
+                    <div class="design-grid">
+                        <div class="design-item reveal">
+                            <img src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Motor trasero" class="design-item-image">
+                            <h3>tracción trasera directa</h3>
+                            <p>Motor hub QS integrado en rueda única. Sin pérdidas por transmisión, respuesta inmediata.
+                            </p>
+                        </div>
+                        <div class="design-item reveal">
+                            <img src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Doble rueda delantera" class="design-item-image">
+                            <h3>doble rueda delantera</h3>
+                            <p>Base ancha que elimina la necesidad de apoyos laterales, estabilidad absoluta en parado.
+                            </p>
+                        </div>
+                        <div class="design-item reveal">
+                            <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Chasis triangulado" class="design-item-image">
+                            <h3>triangulación estructural</h3>
+                            <p>Chasis en red de triángulos rígidos, acero inoxidable y galvanizado calibre 18/40.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INGENIERÍA -->
+        <section id="engineering" class="engineering">
+            <div class="section-container">
+                <div class="engineering-split">
+                    <div class="engineering-left reveal">
+                        <span class="section-tag">03 · propulsión</span>
+                        <h2>motor QS 273 V3 40H<br><span class="heading-accent">8.000 W nominales</span></h2>
+                        <ul class="tech-list">
+                            <li><span class="tech-prop">potencia máxima</span> <span class="tech-value">12.000 W</span>
+                            </li>
+                            <li><span class="tech-prop">voltaje</span> <span class="tech-value">72 V</span></li>
+                            <li><span class="tech-prop">torque</span> <span class="tech-value">250 N·m</span></li>
+                            <li><span class="tech-prop">eficiencia</span> <span class="tech-value">91%</span></li>
+                            <li><span class="tech-prop">controlador</span> <span class="tech-value">Sabvoton MQ 100A
+                                    (FOC)</span></li>
+                            <li><span class="tech-prop">batería</span> <span class="tech-value">LiFePO₄ 51.2V · 1
+                                    kWh</span></li>
+                        </ul>
+                    </div>
+                    <div class="engineering-right reveal">
+                        <div class="tech-visual">
+                            <img src="https://images.unsplash.com/photo-1581092335871-4e7c3e3d6b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                alt="Motor QS" class="tech-image">
+                            <div class="tech-orbit">
+                                <div class="core"></div>
+                                <div class="ring ring1"></div>
+                                <div class="ring ring2"></div>
+                                <div class="ring ring3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RENDIMIENTO (con barras de progreso) -->
+        <section id="performance" class="performance">
+            <div class="performance-bg-panels"></div>
+            <div class="section-container">
+                <div class="performance-header reveal">
+                    <span class="section-tag">04 · dinámica</span>
+                    <h2>velocidad silenciosa</h2>
+                </div>
+                <div class="performance-grid">
+                    <div class="perf-card reveal">
+                        <div class="perf-number"><span class="counter" data-target="80">0</span><span
+                                class="perf-unit">km/h</span></div>
+                        <div class="perf-label">velocidad máxima (5T)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="perf-card reveal">
+                        <div class="perf-number"><span class="counter" data-target="3.2">0</span><span
+                                class="perf-unit">s</span></div>
+                        <div class="perf-label">0–100 km/h*</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <span class="perf-note">*simulación con lastre 81.6kg</span>
+                    </div>
+                    <div class="perf-card reveal">
+                        <div class="perf-number"><span class="counter" data-target="250">0</span><span
+                                class="perf-unit">N·m</span></div>
+                        <div class="perf-label">par máximo</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="perf-card reveal">
+                        <div class="perf-number"><span class="counter" data-target="1">0</span><span
+                                class="perf-unit">kWh</span></div>
+                        <div class="perf-label">capacidad energética</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN: MÉTRICAS (gráficos circulares) -->
+        <section id="metrics" class="metrics">
+            <div class="section-container">
+                <div class="metrics-header reveal">
+                    <span class="section-tag">05 · métricas clave</span>
+                    <h2>eficiencia y potencia</h2>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card reveal">
+                        <div class="circular-progress" data-percent="91">
+                            <div class="circular-progress-inner">
+                                <span class="circular-progress-value counter" data-target="91">0</span><span
+                                    class="circular-progress-unit">%</span>
+                            </div>
+                            <svg viewBox="0 0 100 100" class="circular-progress-svg">
+                                <circle cx="50" cy="50" r="40" class="circular-progress-bg"></circle>
+                                <circle cx="50" cy="50" r="40" class="circular-progress-fill"
+                                    style="stroke-dashoffset: calc(251.2 - (251.2 * 91 / 100));"></circle>
+                            </svg>
+                        </div>
+                        <h3>eficiencia energética</h3>
+                        <p>Conversión eléctrica-mecánica sin pérdidas significativas.</p>
+                    </div>
+                    <div class="metric-card reveal">
+                        <div class="circular-progress" data-percent="95">
+                            <div class="circular-progress-inner">
+                                <span class="circular-progress-value counter" data-target="95">0</span><span
+                                    class="circular-progress-unit">%</span>
+                            </div>
+                            <svg viewBox="0 0 100 100" class="circular-progress-svg">
+                                <circle cx="50" cy="50" r="40" class="circular-progress-bg"></circle>
+                                <circle cx="50" cy="50" r="40" class="circular-progress-fill"
+                                    style="stroke-dashoffset: calc(251.2 - (251.2 * 95 / 100));"></circle>
+                            </svg>
+                        </div>
+                        <h3>aprovechamiento térmico</h3>
+                        <p>Sistema de refrigeración por convección y materiales avanzados.</p>
+                    </div>
+                    <div class="metric-card reveal">
+                        <div class="circular-progress" data-percent="88">
+                            <div class="circular-progress-inner">
+                                <span class="circular-progress-value counter" data-target="88">0</span><span
+                                    class="circular-progress-unit">%</span>
+                            </div>
+                            <svg viewBox="0 0 100 100" class="circular-progress-svg">
+                                <circle cx="50" cy="50" r="40" class="circular-progress-bg"></circle>
+                                <circle cx="50" cy="50" r="40" class="circular-progress-fill"
+                                    style="stroke-dashoffset: calc(251.2 - (251.2 * 88 / 100));"></circle>
+                            </svg>
+                        </div>
+                        <h3>densidad de potencia</h3>
+                        <p>Relación peso/potencia líder en su categoría.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEGURIDAD -->
+        <section id="safety" class="safety">
+            <div class="section-container">
+                <div class="safety-grid">
+                    <div class="safety-content reveal">
+                        <span class="section-tag">06 · integridad</span>
+                        <h2>arquitectura de vida</h2>
+                        <div class="safety-features">
+                            <div class="feature"><span class="feature-marker"></span><span>barra antivuelco
+                                    triangulada</span></div>
+                            <div class="feature"><span class="feature-marker"></span><span>jaulas frontales, laterales y
+                                    superiores</span></div>
+                            <div class="feature"><span class="feature-marker"></span><span>cinturón 5 puntos ·
+                                    liberación instantánea</span></div>
+                            <div class="feature"><span class="feature-marker"></span><span>línea de vida Iropa · casco
+                                    bajo estructura</span></div>
+                            <div class="feature"><span class="feature-marker"></span><span>evacuación < 20
+                                        segundos</span>
+                            </div>
+                            <div class="feature"><span class="feature-marker"></span><span>kill switch doble
+                                    (cabina/exterior)</span></div>
+                        </div>
+                    </div>
+                    <div class="safety-visual reveal">
+                        <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                            alt="Estructura de seguridad">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERÍA -->
+        <section id="gallery" class="gallery">
+            <div class="section-container">
+                <span class="section-tag">07 · estética</span>
+                <h2>lenguaje visual Photonix</h2>
+                <div class="gallery-masonry">
+                    <div class="gallery-item item1"
+                        style="background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="gallery-overlay"><span>vista frontal · panal de aluminio</span></div>
+                    </div>
+                    <div class="gallery-item item2"
+                        style="background-image: url('https://images.unsplash.com/photo-1600712242805-5f78671b24da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="gallery-overlay"><span>perfil aerodinámico</span></div>
+                    </div>
+                    <div class="gallery-item item3"
+                        style="background-image: url('https://images.unsplash.com/photo-1581092335871-4e7c3e3d6b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="gallery-overlay"><span>trasera motor hub</span></div>
+                    </div>
+                    <div class="gallery-item item4"
+                        style="background-image: url('https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="gallery-overlay"><span>cabina abierta · espejos CBR600</span></div>
+                    </div>
+                    <div class="gallery-item item5"
+                        style="background-image: url('https://images.unsplash.com/photo-1600712242805-5f78671b24da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="gallery-overlay"><span>detalle suspensión JLA-07-003</span></div>
+                    </div>
+                    <div class="gallery-item item6"
+                        style="background-image: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="gallery-overlay"><span>instrumentación UKC1</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONDUCCIÓN -->
+        <section id="driving" class="driving">
+            <div class="section-container">
+                <div class="driving-wrapper">
+                    <span class="section-tag">08 · simbiosis</span>
+                    <h2>puesto de mando</h2>
+                    <div class="driving-grid">
+                        <div class="driving-col reveal">
+                            <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Cockpit" class="driving-image">
+                        </div>
+                        <div class="driving-col reveal">
+                            <div class="cockpit-item"><span class="cockpit-icon">⌨️</span><span>posición reclinada ·
+                                    centro de gravedad optimizado</span></div>
+                            <div class="cockpit-item"><span class="cockpit-icon">🪑</span><span>asiento cubo con sensor
+                                    de peso (X003H2HTL7)</span></div>
+                            <div class="cockpit-item"><span class="cockpit-icon">📊</span><span>display UKC1 ·
+                                    telemetría en tiempo real</span></div>
+                            <div class="cockpit-item"><span class="cockpit-icon">🎛️</span><span>volante TSX-ME191 ·
+                                    dirección por cremallera</span></div>
+                            <div class="cockpit-item"><span class="cockpit-icon">🔇</span><span>SoundRacer · sonido
+                                    artificial progresivo</span></div>
+                            <div class="cockpit-item"><span class="cockpit-icon">🌬️</span><span>ventilación por
+                                    convección · malla panal 25x20cm</span></div>
+                        </div>
+                    </div>
+                    <div class="driving-quote reveal">
+                        <span>“el conductor no es un pasajero, es parte de la máquina”</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPONSORS (sin cambios, solo se añade un efecto visual) -->
+        <section id="sponsors" class="sponsors">
+            <div class="section-container">
+                <span class="section-tag">09 · ALIADOS</span>
+                <h2>orgullo local</h2>
+                <p class="sponsors-intro">Empresas y organizaciones que creen en nuestro proyecto</p>
+                <div class="sponsors-grid">
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/haceinda (1).png" alt="Hacienda Corralejo"></div>
+                        <h3>Hacienda Corralejo</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/la caldera.svg" alt="La Caldera"></div>
+                        <h3>La Caldera</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/multico.png" alt="Multico"></div>
+                        <h3>Multico</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/Turbomaquinas.svg" alt="Turbomáquinas"></div>
+                        <h3>Turbomáquinas</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/cs (1).svg" alt="Carnicería Sánchez"></div>
+                        <h3>Carnicería Sánchez</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/los juanes.png" alt="Carnicería Los Juanes"></div>
+                        <h3>Carnicería Los Juanes</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/el rosal.svg" alt="Invernaderos el Rosal"></div>
+                        <h3>Invernaderos el Rosal</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/pemex.svg" alt="PEMEX Arias"></div>
+                        <h3>PEMEX Arias</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/reciclalo.png" alt="Recicla.lo"></div>
+                        <h3>Recicla.lo</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/sigma.svg" alt="Sigma Alimentos"></div>
+                        <h3>Sigma Alimentos</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/gruas.png" alt="Grúas Sálias"></div>
+                        <h3>Grúas Sálias</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/agricultor (1).svg"
+                                alt="Ferretería El Agricultor"></div>
+                        <h3>Ferretería El Agricultor</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/carrillo.svg" alt="Refaccionaria Carrillo"></div>
+                        <h3>Refaccionaria Carrillo</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/flow.svg" alt="Flow Music"></div>
+                        <h3>Flow Music</h3>
+                        <span class="sponsor-amount">$1,000</span>
+                    </div>
+                    <div class="sponsor-card">
+                        <div class="sponsor-logo"><img src="img/logos/sunsteel.svg" alt="Sunsteel"></div>
+                        <h3>Sunsteel</h3>
+                        <span class="sponsor-amount">$1,500</span>
+                    </div>
+                </div>
+                <p class="sponsors-footer">+15 empresas locales impulsan la movilidad sostenible</p>
+            </div>
+        </section>
+
+        <!-- VISIÓN -->
+        <section id="vision" class="vision">
+            <div class="section-container">
+                <div class="vision-content reveal">
+                    <span class="section-tag">10 · más allá</span>
+                    <h2>próxima frontera:<br>movilidad con identidad</h2>
+                    <p>Photonix 7 no termina en esta pista. Es el manifiesto de una generación que entiende la
+                        tecnología como extensión cultural. Cada soldadura, cada línea de código, cada conexión
+                        eléctrica lleva el sello de Pénjamo. El auto es solo el comienzo.</p>
+                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+                        alt="Horizonte tecnológico" class="vision-image">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="img/logos/Photonix.svg" alt="Photonix 7" width="48" height="48">
+                </div>
+                <span class="footer-tagline">energía que transforma</span>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Photonix 7</h4>
+                    <ul>
+                        <li><a href="sobrenosotros.html">sobre nosotros</a></li>
+                        <li><a href="#design">diseño</a></li>
+                        <li><a href="#engineering">ingeniería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>competición</h4>
+                    <ul>
+                        <li>E‑Challenge Gto 2025</li>
+                        <li>Electratón</li>
+                        <li>modalidad 2</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>origen</h4>
+                    <ul>
+                        <li>Universidad Politécnica de Pénjamo</li>
+                        <li>Ing. Mecatrónica · Automotriz</li>
+                        <li>Guanajuato, México</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Photonix 7 · todos los derechos reservados</span>
+            <span class="footer-local">hecho con orgullo local</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        // Scroll reveal y contadores animados
+        document.addEventListener('DOMContentLoaded', function () {
+            // Reveal on scroll
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // Counters
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                        entry.target.classList.add('counted');
+                        const target = parseFloat(entry.target.getAttribute('data-target'));
+                        const isFloat = target % 1 !== 0;
+                        const duration = 1500; // ms
+                        const startTime = performance.now();
+                        const startValue = 0;
+
+                        const updateCounter = (currentTime) => {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const currentValue = progress * target;
+                            entry.target.textContent = isFloat ? currentValue.toFixed(1) : Math.floor(currentValue);
+
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                entry.target.textContent = target; // asegura valor exacto
+                            }
+                        };
+
+                        requestAnimationFrame(updateCounter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => counterObserver.observe(counter));
+        });
+    </script>
+
+</body>
+
+</html>
