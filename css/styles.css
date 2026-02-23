@@ -2938,10 +2938,6 @@ section {
   box-shadow: 0 0 1rem rgba(227, 6, 19, 0.5);
 }
 
-.revealed .progress-fill {
-  /* width se define inline, pero aseguramos animación */
-}
-
 /* ----- CIRCULAR PROGRESS (métricas) ----- */
 .metrics {
   background: var(--black-deep);

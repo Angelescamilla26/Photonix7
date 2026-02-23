@@ -233,6 +233,7 @@
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   background: linear-gradient(90deg, #fff, #ccc);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -417,6 +418,7 @@
 .timeline-panel h3 {
   color: transparent;
   background: linear-gradient(90deg, #fff, #ccc);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border-left: 0.4rem solid var(--red-intense);
@@ -426,6 +428,7 @@
 .achievements-panel h3 {
   color: transparent;
   background: linear-gradient(90deg, #fff, #ccc);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border-left: 0.4rem solid var(--blue-electric);
