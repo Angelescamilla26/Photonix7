@@ -30,7 +30,7 @@
       <nav>
         <ul>
           <li><a href="index.html" class="menu-link"><span class="menu-index">00</span> inicio</a></li>
-          <li><a href="nosotros.html" class="menu-link"><span class="menu-index">01</span> sobre nosotros.html</a></li>
+          <li><a href="nosotros.html" class="menu-link"><span class="menu-index">01</span> sobre nosotros</a></li>
           <li><a href="index.html#design" class="menu-link"><span class="menu-index">02</span> diseño</a></li>
           <li><a href="index.html#engineering" class="menu-link"><span class="menu-index">03</span> ingeniería</a></li>
           <li><a href="index.html#performance" class="menu-link"><span class="menu-index">04</span> rendimiento</a></li>
@@ -70,12 +70,13 @@
       <form class="auth-form active" id="login-form" method="POST" action="login" novalidate>
         @csrf
         <div class="input-group">
-          <input type="email" id="login-email" name="email" placeholder=" " autocomplete="email" value="{{ old('email">
+          <input type="email" name="email" value="{{ old('email') }}">
           <label for="login-email">correo electrónico</label>
-          <div class="error-message">{{ $errors->first('email</div>
+          <div class="error-message">{{ $errors->first('email') }}</div>
         </div>
         <div class="input-group">
-          <input type="password" id="login-password" name="password" placeholder=" " autocomplete="current-password">
+          <input type="password" name="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Mínimo 8 caracteres, una mayúscula, una minúscula y un número" autocomplete="new-password" required>
           <label for="login-password">contraseña</label>
           <div class="error-message">{{ $errors->first('password</div>
         </div>
@@ -84,7 +85,8 @@
           <span class="btn-loader"></span>
         </button>
         <div class="auth-footer" style="margin-top: 1.5rem; text-align: center;">
-          <a href="password.request" class="forgot-link" style="color: #0080FF; text-decoration: none; font-size: 1.4rem;">
+          <a href="password.request" class="forgot-link"
+            style="color: #0080FF; text-decoration: none; font-size: 1.4rem;">
             ¿Olvidaste tu contraseña?
           </a>
         </div>
@@ -98,7 +100,8 @@
           <div class="error-message">{{ $errors->first('name</div>
         </div>
         <div class="input-group">
-          <input type="email" id="register-email" name="email" placeholder=" " autocomplete="email" value="{{ old('email">
+          <input type="email" id="register-email" name="email" placeholder=" " autocomplete="email"
+            value="{{ old('email">
           <label for="register-email">correo electrónico</label>
           <div class="error-message">{{ $errors->first('email</div>
         </div>
@@ -108,32 +111,38 @@
           <div class="error-message">{{ $errors->first('phone</div>
         </div>
         <div class="input-group">
-          <input type="text" id="register-street" name="street" placeholder=" " autocomplete="street-address" value="{{ old('street">
+          <input type="text" id="register-street" name="street" placeholder=" " autocomplete="street-address"
+            value="{{ old('street">
           <label for="register-street">calle y número</label>
           <div class="error-message">{{ $errors->first('street</div>
         </div>
         <div class="input-group">
-          <input type="text" id="register-neighborhood" name="neighborhood" placeholder=" " autocomplete="address-level4" value="{{ old('neighborhood">
+          <input type="text" id="register-neighborhood" name="neighborhood" placeholder=" "
+            autocomplete="address-level4" value="{{ old('neighborhood">
           <label for="register-neighborhood">colonia</label>
           <div class="error-message">{{ $errors->first('neighborhood</div>
         </div>
         <div class="input-group">
-          <input type="text" id="register-city" name="city" placeholder=" " autocomplete="address-level2" value="{{ old('city">
+          <input type="text" id="register-city" name="city" placeholder=" " autocomplete="address-level2"
+            value="{{ old('city">
           <label for="register-city">ciudad</label>
           <div class="error-message">{{ $errors->first('city</div>
         </div>
         <div class="input-group">
-          <input type="text" id="register-state" name="state" placeholder=" " autocomplete="address-level1" value="{{ old('state">
+          <input type="text" id="register-state" name="state" placeholder=" " autocomplete="address-level1"
+            value="{{ old('state">
           <label for="register-state">estado</label>
           <div class="error-message">{{ $errors->first('state</div>
         </div>
         <div class="input-group">
-          <input type="text" id="register-postal" name="postal_code" placeholder=" " autocomplete="postal-code" value="{{ old('postal_code">
+          <input type="text" id="register-postal" name="postal_code" placeholder=" " autocomplete="postal-code"
+            value="{{ old('postal_code">
           <label for="register-postal">código postal</label>
           <div class="error-message">{{ $errors->first('postal_code</div>
         </div>
         <div class="input-group">
-          <input type="text" id="register-country" name="country" placeholder=" " autocomplete="country" value="{{ old('country', 'México">
+          <input type="text" id="register-country" name="country" placeholder=" " autocomplete="country"
+            value="{{ old('country', 'México">
           <label for="register-country">país</label>
           <div class="error-message">{{ $errors->first('country</div>
         </div>
@@ -147,12 +156,19 @@
           <label for="register-confirm">confirmar contraseña</label>
           <div class="error-message"></div>
         </div>
+        <div class="password-strength-wrapper" aria-label="Fortaleza de contraseña">
+          <div class="strength-track">
+            <div id="password-strength" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            </div>
+          </div>
+          <span id="password-strength-label" aria-live="polite"></span>
+        </div>
         <button type="submit" class="auth-submit" id="register-submit">
           <span class="btn-text">registrarse</span>
           <span class="btn-loader"></span>
         </button>
         <div class="auth-footer">
-          al registrarte aceptas nuestros <a href="terminos.index">términos</a>
+          al registrarte aceptas nuestros <a href="terminos.html">términos</a>
         </div>
       </form>
 
@@ -163,7 +179,8 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="img/logos/Photonix.svg" alt="Photonix 7" width="48" height="48" style="filter: brightness(0) invert(1);">
+          <img src="img/logos/Photonix.svg" alt="Photonix 7" width="48" height="48"
+            style="filter: brightness(0) invert(1);">
         </div>
         <span class="footer-tagline">energía que transforma</span>
       </div>
@@ -171,7 +188,7 @@
         <div class="footer-col">
           <h4>Photonix 7</h4>
           <ul>
-            <li><a href="nosotros.html">sobre nosotros.html</a></li>
+            <li><a href="nosotros.html">sobre nosotros</a></li>
             <li><a href="index.html#design">diseño</a></li>
             <li><a href="index.html#engineering">ingeniería</a></li>
           </ul>

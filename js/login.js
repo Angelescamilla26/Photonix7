@@ -343,3 +343,23 @@
   });
 
 })();
+document.getElementById('register-password')?.addEventListener('input', function () {
+  const val = this.value;
+  let strength = 0;
+  if (val.length >= 8) strength++;
+  if (/[A-Z]/.test(val)) strength++;
+  if (/[0-9]/.test(val)) strength++;
+  if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+  const bar = document.getElementById('password-strength');
+  const labels = ['', 'Débil', 'Regular', 'Buena', 'Fuerte'];
+  const colors = ['', '#E30613', '#f59e0b', '#0080FF', '#22c55e'];
+
+  if (bar) {
+    bar.style.width = (strength * 25) + '%';
+    bar.style.background = colors[strength];
+    bar.setAttribute('aria-valuenow', strength * 25);
+  }
+  const label = document.getElementById('password-strength-label');
+  if (label) label.textContent = labels[strength];
+});
