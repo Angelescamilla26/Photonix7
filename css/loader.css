@@ -5,11 +5,21 @@
   justify-content: center;
   align-items: center;
   background: #000;
-  z-index: 9999;
+  z-index: 99999; 
+  animation: loaderBgPulse 4s ease-in-out infinite;
+
 }
 
 .loader {
   width: 100%;
+  max-width: 80rem;   
+  padding: 0 2rem;    
+}
+
+.loader svg {
+  width: 100%;
+  height: auto;       
+  display: block;
 }
 
 .trace-bg {
@@ -23,57 +33,118 @@
   fill: none;
   stroke-dasharray: 40 400;
   stroke-dashoffset: 438;
-  /* Mantenemos el drop-shadow original pero lo hacemos más intenso */
-  filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
-  /* Optimizaciones para reducir lag */
-  will-change: filter, stroke-dashoffset;
+  will-change: stroke-dashoffset, filter;
   transform: translateZ(0);
-  animation: flow 3s cubic-bezier(0.5, 0, 0.9, 1) infinite;
+
+  animation:
+    flow          3s cubic-bezier(0.5, 0, 0.9, 1) infinite,
+    traceGlowPulse 2s ease-in-out              infinite;
 }
 
-/* Colores más vibrantes para el neon */
-.yellow {
-  stroke: #ffe600;
-  box-shadow: 0 0 2rem rgba(255, 230, 0, 0.6); /* Se mantiene por si acaso, aunque en SVG no aplica */
-}
-.blue {
-  stroke: #00e5ff;
-  box-shadow: 0 0 2rem rgba(0, 229, 255, 0.6);
-}
-.green {
-  stroke: #00ff37;
-  box-shadow: 0 0 2rem rgba(0, 255, 55, 0.6);
-}
-.purple {
-  stroke: #bf7aff;
-  box-shadow: 0 0 2rem rgba(191, 122, 255, 0.6);
-}
-.red {
-  stroke: #ff5533;
-  box-shadow: 0 0 2rem rgba(255, 85, 51, 0.6);
-}
+.yellow { stroke: #ffe600; }
+.blue   { stroke: #00e5ff; }
+.green  { stroke: #00ff37; }
+.purple { stroke: #bf7aff; }
+.red    { stroke: #ff5533; }
+
+.trace-flow.purple { animation-delay: 0s,   0s;   }
+.trace-flow.blue   { animation-delay: 0.4s, 0.3s; }
+.trace-flow.yellow { animation-delay: 0.8s, 0.6s; }
+.trace-flow.green  { animation-delay: 1.2s, 0.9s; }
+.trace-flow.red    { animation-delay: 1.6s, 1.2s; }
 
 @keyframes flow {
-  to {
-    stroke-dashoffset: 0;
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes traceGlowPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 10px currentColor)
+      drop-shadow(0 0 20px currentColor);
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 18px currentColor)
+      drop-shadow(0 0 40px currentColor)
+      drop-shadow(0 0 60px currentColor);
   }
 }
 
-/* Čip */
-.chip-body {
-  rx: 20;
-  ry: 20;
+@keyframes chipBreath {
+  0%, 100% { filter: drop-shadow(0 0  6px rgba(0,0,0,0.8)); }
+  50%       {
+    filter:
+      drop-shadow(0 0 18px rgba(191,122,255,0.4))
+      drop-shadow(0 0 35px rgba(0,229,255,0.2));
+  }
 }
 
-/* Text uvnitř čipu */
-.chip-text {
-  font-weight: bold;
-  letter-spacing: 1px;
+@keyframes chipTextFlicker {
+  0%, 88%, 92%, 96%, 100% { opacity: 1;   }
+  90%, 94%                { opacity: 0.4; }
 }
 
-/* Piny */
-.chip-pin {
-  stroke: #444;
-  stroke-width: 0.5;
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+@keyframes pinSpark {
+  0%, 85%, 100% { filter: drop-shadow(0 0 2px rgba(0,0,0,0.6)); }
+  87%           { filter: drop-shadow(0 0 5px rgba(0,229,255,0.9)); }
+  90%           { filter: drop-shadow(0 0 2px rgba(0,0,0,0.6)); }
+  92%           { filter: drop-shadow(0 0 4px rgba(191,122,255,0.8)); }
+}
+
+@keyframes loaderBgPulse {
+  0%, 100% { background: #000; }
+  50%       { background: #030303; }
+}
+
+.loader svg rect[rx="20"] {
+  animation: chipBreath 3s ease-in-out infinite;
+}
+
+.loader svg text {
+  animation: chipTextFlicker 5s ease-in-out infinite;
+}
+
+.loader svg rect[fill="url(#pinGradient)"] {
+  animation: pinSpark 4s ease-in-out infinite;
+}
+.loader svg rect[fill="url(#pinGradient)"]:nth-child(2) { animation-delay: 0.3s; }
+.loader svg rect[fill="url(#pinGradient)"]:nth-child(3) { animation-delay: 0.6s; }
+.loader svg rect[fill="url(#pinGradient)"]:nth-child(4) { animation-delay: 0.9s; }
+.loader svg rect[fill="url(#pinGradient)"]:nth-child(5) { animation-delay: 1.2s; }
+.loader svg rect[fill="url(#pinGradient)"]:nth-child(6) { animation-delay: 1.5s; }
+.loader svg rect[fill="url(#pinGradient)"]:nth-child(7) { animation-delay: 1.8s; }
+.loader svg rect[fill="url(#pinGradient)"]:nth-child(8) { animation-delay: 2.1s; }
+
+.loader svg circle {
+  animation: pinSpark 3.5s ease-in-out infinite;
+}
+.loader svg circle:nth-child(1) { animation-delay: 0s;   }
+.loader svg circle:nth-child(2) { animation-delay: 0.4s; }
+.loader svg circle:nth-child(3) { animation-delay: 0.8s; }
+.loader svg circle:nth-child(4) { animation-delay: 1.2s; }
+.loader svg circle:nth-child(5) { animation-delay: 1.6s; }
+.loader svg circle:nth-child(6) { animation-delay: 2.0s; }
+.loader svg circle:nth-child(7) { animation-delay: 2.4s; }
+.loader svg circle:nth-child(8) { animation-delay: 2.8s; }
+
+@media (max-width: 600px) {
+  .loader {
+    padding: 0 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-flow {
+
+    animation: flow 3s cubic-bezier(0.5, 0, 0.9, 1) infinite;
+  }
+
+  .main-container,
+  .loader svg rect[rx="20"],
+  .loader svg text,
+  .loader svg rect[fill="url(#pinGradient)"],
+  .loader svg circle {
+    animation: none;
+  }
 }

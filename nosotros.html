@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -12,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <div class="main-container" id="loader">
     <div class="loader">
@@ -74,7 +76,7 @@
       </svg>
     </div>
   </div>
-  <a href="/index.html"><img src="img/logos/Photonix.svg" alt="Photonix 7" class="floating-logo"></a>
+  <a href="index.html"><img src="img/logos/Photonix.svg" alt="Photonix 7" class="floating-logo"></a>
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
   <div class="menu-toggle">
@@ -87,15 +89,15 @@
     <div class="menu-container">
       <nav>
         <ul>
-          <li><a href="index.html" class="menu-link"><span class="menu-index">00</span> inicio</a></li>
+          <li><a href="index.html.blade.php" class="menu-link"><span class="menu-index">00</span> inicio</a></li>
           <li><a href="sobre-nosotros.html" class="menu-link"><span class="menu-index">01</span> sobre nosotros</a></li>
-          <li><a href="index.html#design" class="menu-link"><span class="menu-index">02</span> diseño</a></li>
-          <li><a href="index.html#engineering" class="menu-link"><span class="menu-index">03</span> ingeniería</a></li>
-          <li><a href="index.html#performance" class="menu-link"><span class="menu-index">04</span> rendimiento</a></li>
-          <li><a href="index.html#safety" class="menu-link"><span class="menu-index">05</span> seguridad</a></li>
-          <li><a href="index.html#gallery" class="menu-link"><span class="menu-index">06</span> galería</a></li>
-          <li><a href="index.html#driving" class="menu-link"><span class="menu-index">07</span> conducción</a></li>
-          <li><a href="index.html#vision" class="menu-link"><span class="menu-index">08</span> visión</a></li>
+          <li><a href="index.html.blade.php#design" class="menu-link"><span class="menu-index">02</span> diseño</a></li>
+          <li><a href="index.html.blade.php#engineering" class="menu-link"><span class="menu-index">03</span> ingeniería</a></li>
+          <li><a href="index.html.blade.php#performance" class="menu-link"><span class="menu-index">04</span> rendimiento</a></li>
+          <li><a href="index.html.blade.php#safety" class="menu-link"><span class="menu-index">05</span> seguridad</a></li>
+          <li><a href="index.html.blade.php#gallery" class="menu-link"><span class="menu-index">06</span> galería</a></li>
+          <li><a href="index.html.blade.php#driving" class="menu-link"><span class="menu-index">07</span> conducción</a></li>
+          <li><a href="index.html.blade.php#vision" class="menu-link"><span class="menu-index">08</span> visión</a></li>
         </ul>
       </nav>
       <div class="menu-footer">
@@ -110,7 +112,7 @@
   </div>
   <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
   <main>
-    <section id="about-hero" class="hero fullscreen about-hero" style="height: 70vh; min-height: 60rem;">
+    <section id="about-hero" class="hero fullscreen about-hero" style="height: 100vh; min-height: 60rem;">
       <div class="hero-bg-layer"></div>
       <div class="hero-image" style="background-image: url('img/1.jpg');"></div>
       <div class="hero-particles"></div>
@@ -127,10 +129,6 @@
           <a href="#team" class="btn btn-primary"><i class="fas fa-arrow-down"></i> conocer al equipo</a>
           <a href="index.html" class="btn btn-outline"><i class="fas fa-home"></i> volver al inicio</a>
         </div>
-      </div>
-      <div class="hero-scroll-indicator">
-        <span>descubre</span>
-        <div class="scroll-line"></div>
       </div>
     </section>
     <section id="filosofia" class="narrative reveal" style="background: #000;">
@@ -263,7 +261,7 @@
             <span class="team-badge">Sustentabilidad</span>
             <p>Ingeniería Industrial. Análisis de ciclo de vida y eficiencia energética.</p>
           </div>
-          <div class="team-card" data-tooltip="Gestión de proyectos y sustentabilidad.">
+          <div class="team-card" data-tooltip="Gestión de proyectos y sustentabilidad." id="Persona4">
             <div class="team-avatar"><i class="fas fa-leaf"></i></div>
             <h3>persona 4</h3>
             <span class="team-badge">Sustentabilidad</span>
@@ -561,8 +559,8 @@
           <h4>Photonix 7</h4>
           <ul>
             <li><a href="sobre-nosotros.html">sobre nosotros</a></li>
-            <li><a href="index.html#design">diseño</a></li>
-            <li><a href="index.html#engineering">ingeniería</a></li>
+            <li><a href="index.html.blade.php#design">diseño</a></li>
+            <li><a href="index.html.blade.php#engineering">ingeniería</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -590,7 +588,7 @@
   <script src="js/loader.js"></script>
   <script src="js/sobrenosotros.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const reveals = document.querySelectorAll('.reveal');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -598,7 +596,10 @@
             entry.target.classList.add('active');
           }
         });
-      }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      });
       reveals.forEach(el => observer.observe(el));
       const scrollTopBtn = document.getElementById('scrollTop');
       window.addEventListener('scroll', () => {
@@ -609,9 +610,13 @@
         }
       });
       scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
     });
   </script>
 </body>
+
 </html>

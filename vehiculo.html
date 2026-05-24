@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Photonix 7 · Vehículo Eléctrico UPP</title>
+  <meta name="description" content="Photonix 7: hiperdeportivo eléctrico monoposto de la Universidad Politécnica de Pénjamo. Explora chasis, motor, electrónica y seguridad en modelo 3D interactivo.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS existentes (asumo que los tienes, los incluimos para integridad) -->
+  <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/vehiculo-extras.css">
+  <!-- CSS adicional para mejoras que no interfieran -->
+  <style>
+    /* Mejoras de rendimiento y accesibilidad que complementan tu CSS existente */
+    .global-loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #010101;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      backdrop-filter: blur(0px);
+    }
+    .global-loader-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    .site-content {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .site-content.loaded {
+      opacity: 1;
+    }
+    /* enfoque visible accesible */
+    :focus-visible {
+      outline: 2px solid #E30613;
+      outline-offset: 3px;
+    }
+    /* mejorar contraste y legibilidad */
+    .veh-text, p, li {
+      color: #e0e0e0;
+      line-height: 1.5;
+    }
+    /* botón scroll top mejorado */
+    .scroll-top {
+      background: #E30613;
+      border: none;
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .scroll-top:hover {
+      transform: translateY(-4px);
+      background: #ff2a2a;
+    }
+    /* Asegurar que las imágenes no se desborden */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Sección equipo añadida correctamente */
+    .team {
+      background: linear-gradient(145deg, var(--black), #0a0a0a);
+      position: relative;
+      overflow: hidden;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4rem;
+      margin-top: 4rem;
+    }
+    @media (max-width: 1024px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .team-card {
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(1rem);
+      border: 0.1rem solid rgba(255, 255, 255, 0.03);
+      border-radius: 2rem;
+      padding: 2.4rem 1.6rem;
+      transition: var(--transition-elegant);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(227, 6, 19, 0.1), transparent 80%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .team-card:hover {
+      transform: translateY(-0.8rem);
+      border-color: rgba(0, 128, 255, 0.3);
+      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.8);
+    }
+    .team-card:hover::before {
+      opacity: 1;
+    }
+    .team-avatar {
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1.6rem;
+      border: 0.2rem solid transparent;
+      background: linear-gradient(145deg, var(--red-intense), var(--blue-electric));
+      padding: 0.3rem;
+      transition: transform 0.3s ease;
+    }
+    .team-card:hover .team-avatar {
+      transform: scale(1.05);
+    }
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 0.2rem solid var(--black);
+    }
+    .team-card h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--white-pure);
+      line-height: 1.2;
+    }
+    .team-role {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--blue-electric);
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      background: rgba(0, 128, 255, 0.1);
+      padding: 0.4rem 1.2rem;
+      border-radius: 3rem;
+      border: 0.1rem solid rgba(0, 128, 255, 0.2);
+    }
+    .team-desc {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+    /* Ajustes para sección sponsors */
+    .sponsors {
+      background: #0a0a0a;
+      text-align: center;
+      padding: 8rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .sponsors-intro {
+      font-size: 1.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 5rem;
+    }
+    .sponsors-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    @media (max-width: 1200px) {
+      .sponsors-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 900px) {
+      .sponsors-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .sponsors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .sponsor-logo {
+        width: 6rem;
+        height: 6rem;
+      }
+      .sponsor-card h3 {
+        font-size: 1.4rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .sponsors-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .sponsor-card {
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(0.5rem);
+      border: 0.1rem solid rgba(255, 255, 255, 0.03);
+      border-radius: 2rem;
+      padding: 2rem 1rem;
+      transition: var(--transition-elegant);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .sponsor-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(227, 6, 19, 0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .sponsor-card:hover {
+      transform: translateY(-0.8rem);
+      border-color: rgba(227, 6, 19, 0.3);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+    }
+    .sponsor-card:hover::after {
+      opacity: 1;
+    }
+    .sponsor-logo {
+      width: 8rem;
+      height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    .sponsor-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s ease;
+    }
+    .sponsor-card:hover .sponsor-logo img {
+      filter: brightness(0) invert(1) drop-shadow(0 0 0.5rem rgba(227, 6, 19, 0.5));
+    }
+    .sponsor-card h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white-pure);
+      margin: 0;
+      line-height: 1.3;
+    }
+    .sponsor-amount {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--blue-electric);
+      background: rgba(0, 128, 255, 0.1);
+      padding: 0.3rem 1.2rem;
+      border-radius: 3rem;
+      border: 0.1rem solid rgba(0, 128, 255, 0.2);
+    }
+    .sponsors-footer {
+      font-size: 1.6rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 4rem;
+      letter-spacing: 0.2rem;
+    }
+    /* Ajustes adicionales para secciones que podrían faltar */
+    .vehicle-model-container {
+      min-height: 60rem;
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(1rem);
+      border: 0.1rem solid rgba(255, 255, 255, 0.05);
+      border-radius: 2.4rem;
+      overflow: hidden;
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-elegant);
+      position: relative;
+    }
+    .veh-model-controls {
+      position: absolute;
+      bottom: 2.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 3rem;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10rem;
+      padding: 0.8rem 2.4rem;
+      pointer-events: none;
+    }
+    .model-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      z-index: 2;
+      transition: opacity 0.6s ease;
+    }
+    .veh-placeholder-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.4rem;
+    }
+    .veh-placeholder-rings {
+      position: relative;
+      width: 12rem;
+      height: 12rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .veh-placeholder-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid transparent;
+    }
+    .veh-placeholder-ring:nth-child(1) {
+      width: 4rem;
+      height: 4rem;
+      border-color: var(--red-intense);
+      animation: vehRingSpin 2s linear infinite;
+    }
+    .veh-placeholder-ring:nth-child(2) {
+      width: 7rem;
+      height: 7rem;
+      border-color: rgba(0, 128, 255, 0.6);
+      animation: vehRingSpin 3s linear infinite reverse;
+    }
+    .veh-placeholder-ring:nth-child(3) {
+      width: 10rem;
+      height: 10rem;
+      border-color: rgba(255, 255, 255, 0.15);
+      animation: vehRingSpin 5s linear infinite;
+    }
+    @keyframes vehRingSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.9s var(--veh-ease, cubic-bezier(0.16, 1, 0.3, 1)), transform 0.9s var(--veh-ease, cubic-bezier(0.16, 1, 0.3, 1));
+      will-change: opacity, transform;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 3rem;
+      right: 3rem;
+      width: 4.8rem;
+      height: 4.8rem;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(1rem);
+      border: 1px solid var(--red-intense);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease;
+      z-index: 1000;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .scroll-top:hover {
+      background: var(--red-intense);
+      box-shadow: 0 0 20px rgba(227, 6, 19, 0.5);
+    }
+    @media (max-width: 768px) {
+      .vehicle-model-container {
+        min-height: 40rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .vehicle-model-container {
+        min-height: 30rem;
+      }
+    }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Loader mejorado -->
+  <div class="global-loader-overlay" id="globalLoader">
+    <div class="loader">
+      <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="chipGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2d2d2d"/>
+            <stop offset="100%" stop-color="#0f0f0f"/>
+          </linearGradient>
+          <linearGradient id="textGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#eeeeee"/>
+            <stop offset="100%" stop-color="#888888"/>
+          </linearGradient>
+          <linearGradient id="pinGradient" x1="1" y1="0" x2="0" y2="0">
+            <stop offset="0%" stop-color="#bbbbbb"/>
+            <stop offset="50%" stop-color="#888888"/>
+            <stop offset="100%" stop-color="#555555"/>
+          </linearGradient>
+          <linearGradient id="progressGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#E30613"/>
+            <stop offset="100%" stop-color="#0080FF"/>
+          </linearGradient>
+        </defs>
+        <g id="traces">
+          <path d="M100 100 H200 V210 H326" class="trace-bg"/>
+          <path d="M100 100 H200 V210 H326" class="trace-flow purple"/>
+          <path d="M80 180 H180 V230 H326" class="trace-bg"/>
+          <path d="M80 180 H180 V230 H326" class="trace-flow blue"/>
+          <path d="M60 260 H150 V250 H326" class="trace-bg"/>
+          <path d="M60 260 H150 V250 H326" class="trace-flow yellow"/>
+          <path d="M100 350 H200 V270 H326" class="trace-bg"/>
+          <path d="M100 350 H200 V270 H326" class="trace-flow green"/>
+          <path d="M700 90 H560 V210 H474" class="trace-bg"/>
+          <path d="M700 90 H560 V210 H474" class="trace-flow blue"/>
+          <path d="M740 160 H580 V230 H474" class="trace-bg"/>
+          <path d="M740 160 H580 V230 H474" class="trace-flow green"/>
+          <path d="M720 250 H590 V250 H474" class="trace-bg"/>
+          <path d="M720 250 H590 V250 H474" class="trace-flow red"/>
+          <path d="M680 340 H570 V270 H474" class="trace-bg"/>
+          <path d="M680 340 H570 V270 H474" class="trace-flow yellow"/>
+        </g>
+        <rect x="330" y="190" width="140" height="100" rx="20" ry="20" fill="url(#chipGradient)" stroke="#222" stroke-width="3" filter="drop-shadow(0 0 6px rgba(0,0,0,0.8))"/>
+        <g>
+          <rect x="322" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+          <rect x="322" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+          <rect x="322" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+          <rect x="322" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+        </g>
+        <g>
+          <rect x="470" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+          <rect x="470" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+          <rect x="470" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+          <rect x="470" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2"/>
+        </g>
+        <text x="400" y="240" font-family="Arial, sans-serif" font-size="22" fill="url(#textGradient)" text-anchor="middle" alignment-baseline="middle">Loading</text>
+        <circle cx="100" cy="100" r="5" fill="black"/>
+        <circle cx="80"  cy="180" r="5" fill="black"/>
+        <circle cx="60"  cy="260" r="5" fill="black"/>
+        <circle cx="100" cy="350" r="5" fill="black"/>
+        <circle cx="700" cy="90"  r="5" fill="black"/>
+        <circle cx="740" cy="160" r="5" fill="black"/>
+        <circle cx="720" cy="250" r="5" fill="black"/>
+        <circle cx="680" cy="340" r="5" fill="black"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="site-content">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="menu-fullscreen" id="menuFullscreen" aria-hidden="true">
+      <div class="menu-bg-overlay"></div>
+      <div class="menu-container">
+        <button class="menu-close" id="menuClose" aria-label="Cerrar menú">
+          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="#hero"           class="menu-link"><span class="menu-index">01</span> inicio</a></li>
+            <li><a href="#vehicle"        class="menu-link"><span class="menu-index">02</span> vehículo 3D</a></li>
+            <li><a href="#configuracion"  class="menu-link"><span class="menu-index">03</span> configuración</a></li>
+            <li><a href="#chasis"         class="menu-link"><span class="menu-index">04</span> chasis</a></li>
+            <li><a href="#suspension"     class="menu-link"><span class="menu-index">05</span> suspensión</a></li>
+            <li><a href="#motor"          class="menu-link"><span class="menu-index">06</span> motor</a></li>
+            <li><a href="#electronica"    class="menu-link"><span class="menu-index">07</span> electrónica</a></li>
+            <li><a href="#instrumentacion" class="menu-link"><span class="menu-index">08</span> telemetría</a></li>
+            <li><a href="#seguridad"      class="menu-link"><span class="menu-index">09</span> seguridad</a></li>
+            <li><a href="#equipo"         class="menu-link"><span class="menu-index">10</span> equipo</a></li>
+            <li><a href="#patrocinadores" class="menu-link"><span class="menu-index">11</span> patrocinadores</a></li>
+          </ul>
+        </nav>
+        <div class="menu-footer">
+          <p>© 2026 Photonix 7 — Universidad Politécnica de Pénjamo</p>
+          <div class="menu-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
+
+    <main>
+      <section id="hero" class="hero fullscreen">
+        <div class="hero-bg-layer"></div>
+        <div class="hero-particles"></div>
+        <div class="hero-grid-overlay"></div>
+        <div class="veh-hero-scan"></div>
+        <div class="hero-container">
+          <div class="hero-badge veh-fade-in" style="--vd:0.3s">
+            <span>Photonix 7 · UPP · 2026</span>
+          </div>
+          <h1 class="hero-title veh-fade-in" style="--vd:0.55s">
+            <span class="title-line">Energía limpia</span>
+            <span class="title-line">que acelera</span>
+            <span class="title-small">Vehículo eléctrico monoplaça</span>
+          </h1>
+          <div class="hero-stats veh-fade-in" style="--vd:0.8s">
+            <div class="stat">
+              <span class="stat-number veh-counter" data-target="211">0</span>
+              <span class="stat-unit">cm</span>
+              <span class="stat-label">largo</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number veh-counter" data-target="73">0</span>
+              <span class="stat-unit">cm</span>
+              <span class="stat-label">ancho</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number veh-counter" data-target="104">0</span>
+              <span class="stat-unit">cm</span>
+              <span class="stat-label">alto</span>
+            </div>
+          </div>
+          <div class="hero-cta veh-fade-in" style="--vd:1s">
+            <a href="#vehicle" class="btn btn-primary"><span>Explorar 3D</span></a>
+            <a href="#configuracion" class="btn btn-outline"><span>Diseño</span></a>
+          </div>
+        </div>
+        <div class="hero-about"><a href="#vehicle" class="about-link"><span>Vehículo</span><div class="about-line"></div></a></div>
+        <div class="hero-about2"><a href="#equipo" class="about-link2"><span>Equipo</span><div class="about-line2"></div></a></div>
+      </section>
+
+      <section id="vehicle" class="vehicle">
+        <div class="section-container">
+          <span class="section-tag">02 · Descubre</span>
+          <h2>Photonix 7 <span class="heading-accent">en 3D</span></h2>
+          <div class="vehicle-content">
+            <p class="vehicle-description">Configuración de tres ruedas con tracción trasera. Diseño compacto, aerodinámico y seguro. Arrastra, rota y explora cada detalle del modelo interactivo.</p>
+            <div class="vehicle-model-container" id="modelContainer">
+              <div class="veh-model-controls"><span>⟳ Arrastra para rotar</span><span>⊕ Scroll para zoom</span></div>
+              <div class="model-placeholder" id="modelPlaceholder">
+                <div class="veh-placeholder-inner">
+                  <div class="veh-placeholder-rings"><div class="veh-placeholder-ring"></div><div class="veh-placeholder-ring"></div><div class="veh-placeholder-ring"></div></div>
+                  <span>Cargando modelo 3D</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="configuracion" class="design reveal">
+        <div class="section-container">
+          <div class="design-header"><span class="section-tag">03 · Configuración</span><h2>3 ruedas, <span class="heading-accent">máxima estabilidad</span></h2></div>
+          <div class="design-dimensions">
+            <div class="dimension-card"><span class="dimension-value">2110<span class="dimension-unit">mm</span></span><span class="dimension-label">largo</span></div>
+            <div class="dimension-card"><span class="dimension-value">732<span class="dimension-unit">mm</span></span><span class="dimension-label">ancho</span></div>
+            <div class="dimension-card"><span class="dimension-value">1040<span class="dimension-unit">mm</span></span><span class="dimension-label">alto</span></div>
+          </div>
+          <div class="design-grid">
+            <div class="design-item reveal"><img src="img/vehiculo/configuracion.jpg" alt="Configuración 3 ruedas" class="design-item-image"><h3>Tracción trasera</h3><p>Motor en cubo trasero, dos ruedas delanteras directrices. Mayor simplicidad y tracción directa sin pérdidas por transmisión.</p></div>
+            <div class="design-item reveal"><img src="img/vehiculo/dimensiones-superior.jpg" alt="Vista superior" class="design-item-image"><h3>Vista superior</h3><p>Dimensiones en planta que garantizan un centro de gravedad bajo y estabilidad dinámica en curva.</p></div>
+            <div class="design-item reveal"><img src="img/vehiculo/dimensiones-lateral.jpg" alt="Vista lateral" class="design-item-image"><h3>Vista lateral</h3><p>Perfil aerodinámico con posición reclinada del piloto para minimizar la resistencia al aire.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="chasis" class="narrative reveal">
+        <div class="section-container">
+          <div class="narrative-grid">
+            <div class="narrative-content"><span class="section-tag">04 · Chasis</span><h2>Seguridad <span class="heading-accent">estructural</span></h2><div class="text-block"><p>Estructura triangulada de acero (inoxidable, galvanizado y cromado) con análisis de esfuerzo-deformación. Soporta cargas de piloto + lastre (81.6 kg) más baterías y componentes.</p><p>Centro de gravedad optimizado y barra antivuelco triangular que protege al conductor ante cualquier vuelco.</p></div><div class="panel-stats"><div class="stat-item"><span class="stat-main">1.5"</span><span class="stat-sub">tubo principal</span></div><div class="stat-item"><span class="stat-main">18/40</span><span class="stat-sub">calibre acero</span></div></div></div>
+            <div class="narrative-visual"><div class="glass-panel"><img src="img/vehiculo/analisis-esfuerzo.jpg" alt="Análisis de esfuerzo del chasis" class="narrative-image"><p class="veh-caption">Análisis de esfuerzo-deformación del chasis (sin deformación apreciable).</p></div></div>
+          </div>
+          <div class="veh-gallery-2"><div class="gallery-item" style="background-image: url('img/vehiculo/barra-antivuelco.jpg');"><div class="gallery-overlay"><span>Barra antivuelco triangulada</span></div></div><div class="gallery-item" style="background-image: url('img/vehiculo/proteccion-lateral.jpg');"><div class="gallery-overlay"><span>Protección lateral</span></div></div></div>
+        </div>
+      </section>
+
+      <section id="suspension" class="engineering reveal">
+        <div class="section-container">
+          <div class="engineering-split"><div><span class="section-tag">05 · Suspensión</span><h2>Coilover <span class="heading-accent">JLA-07-003</span></h2><p class="veh-text">Suspensión independiente en cada rueda delantera, con amortiguadores coilover. Absorben vibraciones y mejoran la estabilidad en terrenos irregulares.</p><img src="img/vehiculo/suspension-3d.jpg" alt="Suspensión 3D" class="veh-section-img"></div><div><span class="section-tag">Dirección</span><h2>Cremallera <span class="heading-accent">TSX-ME191</span></h2><p class="veh-text">Sistema mecánico de cremallera, ideal para vehículos ligeros. Respuesta directa y precisa, con geometría Ackermann para giros eficientes.</p><img src="img/vehiculo/direccion-3d.jpg" alt="Dirección 3D" class="veh-section-img"></div></div>
+          <div class="veh-subsection reveal"><span class="section-tag">Frenos</span><h2>Disco hidráulico <span class="heading-accent">HD-E635</span></h2><div class="veh-split-2"><p class="veh-text">Frenos de disco en las tres ruedas. Modelo HD-E635 con caliper de doble pistón, rotores de 160/180 mm. Distribución 100% delantero con retención regenerativa trasera.</p><img src="img/vehiculo/freno-disco.jpg" alt="Freno de disco" class="veh-section-img"></div></div>
+        </div>
+      </section>
+
+      <section id="motor" class="performance reveal">
+        <div class="performance-bg-panels"></div>
+        <div class="section-container">
+          <div class="performance-header"><span class="section-tag">06 · Motor</span><h2>QS 273 <span class="heading-accent">8000 W</span></h2></div>
+          <div class="performance-grid"><div class="perf-card"><div class="perf-number"><span class="veh-counter" data-target="8000">0</span><span class="perf-unit">W</span></div><div class="perf-label">potencia nominal</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:67%;"></div></div><span class="perf-note">pico 12,000 W</span></div><div class="perf-card"><div class="perf-number"><span class="veh-counter" data-target="72">0</span><span class="perf-unit">V</span></div><div class="perf-label">voltaje</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:60%;"></div></div><span class="perf-note">rango 60–96 V</span></div><div class="perf-card"><div class="perf-number"><span class="veh-counter" data-target="250">0</span><span class="perf-unit">N·m</span></div><div class="perf-label">torque máximo</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:95%;"></div></div><span class="perf-note">tracción directa</span></div><div class="perf-card"><div class="perf-number"><span class="veh-counter" data-target="91">0</span><span class="perf-unit">%</span></div><div class="perf-label">eficiencia</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:91%;"></div></div><span class="perf-note">máxima</span></div></div>
+          <div class="veh-motor-detail reveal"><img src="img/vehiculo/motor-hub.jpg" alt="Motor hub QS 273" class="veh-section-img"><div><h3 class="veh-subheading">Motor de cubo sin escobillas</h3><p class="veh-text">Integrado en la rueda trasera, elimina pérdidas por transmisión. Diámetro 273 mm, peso 20 kg, con sensor de temperatura KTY83-122.</p><ul class="tech-list"><li><span class="tech-prop">controlador</span><span class="tech-value">Sabvoton MQ 100A FOC</span></li><li><span class="tech-prop">corriente de fase</span><span class="tech-value">350 A pico / 150 A cont.</span></li><li><span class="tech-prop">protecciones</span><span class="tech-value">sobrecorriente, temperatura, cortocircuito</span></li></ul></div></div>
+        </div>
+      </section>
+
+      <section id="electronica" class="safety reveal">
+        <div class="section-container">
+          <div class="safety-grid"><div><span class="section-tag">07 · Batería</span><h2>LiFePO₄ <span class="heading-accent">51.2 V · 1 kWh</span></h2><p class="veh-text">Arreglo de 16 celdas en serie, capacidad 20 Ah. Química segura, larga vida útil y estabilidad térmica superior al litio convencional.</p><img src="img/vehiculo/bateria-tronix.jpg" alt="Batería LiFePO4" class="veh-section-img"><h3 class="veh-subheading">Cableado y protecciones</h3><ul class="tech-list"><li><span class="tech-prop">cable principal</span><span class="tech-value">4 AWG · 130 hilos · 65 A</span></li><li><span class="tech-prop">derivaciones</span><span class="tech-value">10 AWG · 70 hilos · 35 A</span></li><li><span class="tech-prop">fusible</span><span class="tech-value">70 A máxi-fuse</span></li><li><span class="tech-prop">breaker</span><span class="tech-value">70 A termomagnético DC</span></li><li><span class="tech-prop">kill switch</span><span class="tech-value">interno y externo señalizado</span></li></ul></div><div><img src="img/vehiculo/diagrama-electrico.jpg" alt="Diagrama eléctrico general" class="veh-section-img"><p class="veh-caption">Diagrama eléctrico general del sistema.</p><img src="img/vehiculo/paro-emergencia.jpg" alt="Paro de emergencia" class="veh-section-img" style="margin-top:2rem;"><p class="veh-caption">Paro de emergencia externo señalizado.</p></div></div>
+        </div>
+      </section>
+
+      <section id="instrumentacion" class="metrics reveal">
+        <div class="section-container">
+          <div class="metrics-header"><span class="section-tag">08 · Telemetría</span><h2>Control <span class="heading-accent">inteligente</span></h2></div>
+          <div class="metrics-grid"><div class="metric-card"><img src="img/vehiculo/pantalla-ukc1.jpg" alt="Display UKC1" class="veh-metric-img"><h3>Display UKC1</h3><p>LCD a color 3.5". Muestra velocidad, batería, potencia, temperatura y errores en tiempo real. Compatible con Sabvoton.</p></div><div class="metric-card"><img src="img/vehiculo/sensor-peso.jpg" alt="Sensor de peso" class="veh-metric-img"><h3>Sensor de peso</h3><p>X003H2HTL7: celda de carga en la base del asiento. Bloquea el encendido si no detecta al conductor.</p></div><div class="metric-card"><img src="img/vehiculo/esp32.jpg" alt="ESP32" class="veh-metric-img"><h3>ESP32 con shield</h3><p>Gestiona sensores de corriente (ACS758), proximidad (HC-SR04) y peso. Comunicación Wi-Fi y Bluetooth.</p></div></div>
+          <div class="veh-sensors-grid reveal"><div class="perf-card"><h3 class="veh-subheading">Sensor de corriente ACS758</h3><p class="veh-text">Rango ±100 A, salida analógica 0.6–4.5 V, aislamiento galvánico. Monitorea consumo y protege contra sobrecorrientes.</p></div><div class="perf-card"><h3 class="veh-subheading">Sensor ultrasónico HC-SR04</h3><p class="veh-text">Detección de obstáculos a corta distancia. Ayuda en maniobras y seguridad activa del vehículo.</p></div></div>
+          <div class="veh-soundracer reveal"><div><h3 class="veh-subheading">Sistema de sonido artificial SoundRacer</h3><p class="veh-text">Kit con módulo digital, microSD, altavoces intemperie y sensor RPM. Alimentado por batería Gonher 12 V independiente. Cumple norma FMVSS #141 para advertencia a peatones.</p></div><img src="img/vehiculo/soundracer.jpg" alt="SoundRacer kit" class="veh-section-img"></div>
+        </div>
+      </section>
+
+      <section id="seguridad" class="safety reveal">
+        <div class="section-container">
+          <div class="safety-grid"><div><span class="section-tag">09 · Protección pasiva</span><h2>5 puntos <span class="heading-accent">de anclaje</span></h2><p class="veh-text">Cinturón de seguridad Tipo Tiypeor con hebilla central de liberación rápida. Distribuye cargas en hombros, cintura y entrepierna para máxima retención.</p><img src="img/vehiculo/cinturon-5puntos.jpg" alt="Cinturón 5 puntos" class="veh-section-img"></div><div><img src="img/vehiculo/posicion-conduccion.jpg" alt="Posición de manejo" class="veh-section-img"><p class="veh-text" style="margin-top:1.6rem;">Posición reclinada que reduce el centro de gravedad y mejora la absorción de impactos. Evacuación en menos de 20 segundos.</p></div></div>
+          <div class="veh-safety-grid reveal"><div class="perf-card"><h3 class="veh-subheading">Espejos retrovisores CBR600</h3><p class="veh-text">Superficie reflectante 12.4 in² (supera los 8 in² reglamentarios). Montaje rígido al chasis para máxima estabilidad.</p><img src="img/vehiculo/espejos.jpg" alt="Espejos CBR600" class="veh-section-img"></div><div class="perf-card"><h3 class="veh-subheading">Línea de vida</h3><p class="veh-text">El casco del piloto (1.70 m) queda por debajo de la línea estructural. Habitáculo tipo jaula de seguridad integral.</p><img src="img/vehiculo/linea-vida.jpg" alt="Línea de vida" class="veh-section-img"></div></div>
+        </div>
+      </section>
+
+      <!-- Sección EQUIPO añadida (faltaba) -->
+      <section id="equipo" class="team reveal">
+        <div class="section-container">
+          <span class="section-tag">10 · Equipo</span>
+          <h2>Mentes <span class="heading-accent">detrás del Photonix</span></h2>
+          <div class="team-grid">
+            <div class="team-card"><div class="team-avatar"><img src="img/equipo/placeholder.jpg" alt="Integrante"></div><h3>Ing. Alan Ramírez</h3><span class="team-role">Líder de Proyecto</span><p class="team-desc">Coordinación general, gestión de recursos y visión técnica del vehículo.</p></div>
+            <div class="team-card"><div class="team-avatar"><img src="img/equipo/placeholder.jpg" alt="Integrante"></div><h3>Mtra. Sofía Martínez</h3><span class="team-role">Diseño Mecánico</span><p class="team-desc">Diseño de chasis, suspensión y simulación estructural en CAD/CAE.</p></div>
+            <div class="team-card"><div class="team-avatar"><img src="img/equipo/placeholder.jpg" alt="Integrante"></div><h3>Ing. Carlos Jiménez</h3><span class="team-role">Electrónica y Control</span><p class="team-desc">Sistemas embebidos, telemetría, sensores y comunicaciones.</p></div>
+            <div class="team-card"><div class="team-avatar"><img src="img/equipo/placeholder.jpg" alt="Integrante"></div><h3>Lic. Diana Vega</h3><span class="team-role">Gestión & Patrocinios</span><p class="team-desc">Alianzas estratégicas, presupuesto y difusión del proyecto.</p></div>
+          </div>
+          <p class="veh-text" style="text-align:center; margin-top:4rem;">+ 12 estudiantes de ingeniería y diseño que hacen posible Photonix 7.</p>
+        </div>
+      </section>
+
+      <section id="patrocinadores" class="sponsors reveal">
+        <div class="section-container">
+          <span class="section-tag">11 · Aliados</span>
+          <h2>Patrocinadores <span class="heading-accent">locales</span></h2>
+          <p class="sponsors-intro">Gracias al apoyo de empresas de Pénjamo y la región hacemos realidad este proyecto.</p>
+          <div class="sponsors-grid">
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/haceinda (1).png" alt="Hacienda Corralejo"></div><h3>Hacienda Corralejo</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/la caldera.svg" alt="La Caldera"></div><h3>La Caldera</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/multico.png" alt="Multico"></div><h3>Multico</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/Turbomaquinas.svg" alt="Turbomáquinas"></div><h3>Turbomáquinas</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/cs (1).svg" alt="Carnicería Sánchez"></div><h3>Carnicería Sánchez</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/los juanes.png" alt="Los Juanes"></div><h3>Carnicería Los Juanes</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/el rosal.svg" alt="Invernaderos El Rosal"></div><h3>Invernaderos El Rosal</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/pemex.svg" alt="PEMEX Arias"></div><h3>PEMEX Arias</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/reciclalo.png" alt="Recicla.lo"></div><h3>Recicla.lo</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/sigma.svg" alt="Sigma Alimentos"></div><h3>Sigma Alimentos</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/gruas.png" alt="Grúas Sálias"></div><h3>Grúas Sálias</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/agricultor (1).svg" alt="Ferretería El Agricultor"></div><h3>Ferretería El Agricultor</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/carrillo.svg" alt="Refaccionaria Carrillo"></div><h3>Refaccionaria Carrillo</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/flow.svg" alt="Flow Music"></div><h3>Flow Music</h3><span class="sponsor-amount">$1,000</span></div>
+            <div class="sponsor-card"><div class="sponsor-logo"><img src="img/logos/sunsteel.svg" alt="Sunsteel"></div><h3>Sunsteel</h3><span class="sponsor-amount">$1,500</span></div>
+          </div>
+          <p class="sponsors-footer">+ Aportaciones de los miembros del equipo para cubrir gastos restantes.</p>
+        </div>
+      </section>
+
+      <section class="driving reveal"><div class="section-container"><div class="driving-wrapper"><span class="section-tag">Plan de trabajo</span><h2>Cronograma <span class="heading-accent">2025–2026</span></h2><p class="veh-text" style="margin-bottom:3rem;">Desde mayo hasta noviembre, con etapas de diseño, adquisición, construcción y pruebas en pista.</p><img src="img/vehiculo/cronograma.jpg" alt="Cronograma de actividades" style="width:100%; border-radius:1.6rem;"></div></div></section>
+
+      <section class="performance reveal"><div class="section-container"><div class="performance-header"><span class="section-tag">Presupuesto</span><h2>Inversión <span class="heading-accent">total</span></h2></div><div class="performance-grid"><div class="perf-card"><div class="perf-number">$19,681</div><div class="perf-label">mecánico</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:29%;"></div></div><span class="perf-note">chasis, soldadura, pintura, asiento</span></div><div class="perf-card"><div class="perf-number">$8,125</div><div class="perf-label">electrónico</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:12%;"></div></div><span class="perf-note">controlador, pantalla, sensores, ESP32</span></div><div class="perf-card"><div class="perf-number">$40,330</div><div class="perf-label">eléctrico</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:59%;"></div></div><span class="perf-note">motor, batería, cableado, protecciones</span></div><div class="perf-card veh-total-card"><div class="perf-number">$68,135</div><div class="perf-label">total MXN</div><div class="perf-line"></div><div class="progress-bar"><div class="progress-fill" style="width:100%;"></div></div><span class="perf-note">inversión total del proyecto</span></div></div></div></section>
+    </main>
+
+    <footer><div class="footer-grid"><div class="footer-brand"><div class="footer-logo"><img src="img/logos/Photonix.svg" alt="Photonix 7" width="48" height="48"></div><span class="footer-tagline">energía que transforma</span></div><div class="footer-links"><div class="footer-col"><h4>Explora</h4><ul><li><a href="#vehicle">Vehículo 3D</a></li><li><a href="#motor">Motor</a></li><li><a href="#electronica">Electrónica</a></li></ul></div><div class="footer-col"><h4>Equipo</h4><ul><li><a href="#equipo">Integrantes</a></li><li><a href="nosotros.html">Sobre nosotros</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="terminos.index">Términos y condiciones</a></li><li>Universidad Politécnica de Pénjamo</li><li>Guanajuato, México</li></ul></div></div></div><div class="footer-bottom"><span>© 2026 Photonix 7 · todos los derechos reservados</span><span class="footer-local">hecho con orgullo local · Pénjamo, Guanajuato</span></div></footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/vehiculo.js" type="module"></script>
+  <script>
+    (function() {
+      const loader = document.getElementById('globalLoader');
+      const content = document.querySelector('.site-content');
+      function hideLoader() {
+        if (loader) loader.classList.add('hidden');
+        if (content) content.classList.add('loaded');
+      }
+      window.addEventListener('load', hideLoader);
+      setTimeout(hideLoader, 3500);
+      const scrollBtn = document.getElementById('scrollTop');
+      if (scrollBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 500) scrollBtn.classList.add('visible');
+          else scrollBtn.classList.remove('visible');
+        });
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+      // Reveal on scroll
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('revealed');
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+      // Contadores animados
+      const counters = document.querySelectorAll('.veh-counter');
+      const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        let current = 0;
+        const update = () => {
+          current += Math.ceil(target / 40);
+          if (current >= target) el.innerText = target;
+          else { el.innerText = current; requestAnimationFrame(update); }
+        };
+        update();
+      };
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { animateCounter(entry.target); counterObserver.unobserve(entry.target); }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(c => counterObserver.observe(c));
+    })();
+  </script>
+</body>
+</html>

@@ -38,13 +38,8 @@
 }
 
 @keyframes rotateGlow {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .about-hero .hero-particles {
@@ -58,13 +53,8 @@
 }
 
 @keyframes floatParticles {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 200px 200px;
-  }
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
 }
 
 .floating-logo {
@@ -89,15 +79,8 @@
 }
 
 @keyframes floatLogo {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .glass-deep {
@@ -203,13 +186,8 @@
 }
 
 @keyframes rotateAvatar {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .team-avatar i {
@@ -611,9 +589,7 @@
 }
 
 @keyframes dashMove {
-  to {
-    stroke-dashoffset: -100;
-  }
+  to { stroke-dashoffset: -100; }
 }
 
 .sponsor-svg:hover {
@@ -621,13 +597,8 @@
 }
 
 @keyframes pulseGlow {
-  from {
-    filter: drop-shadow(0 0 1.5rem rgba(227, 6, 19, 0.3));
-  }
-
-  to {
-    filter: drop-shadow(0 0 2.5rem rgba(227, 6, 19, 0.8));
-  }
+  from { filter: drop-shadow(0 0 1.5rem rgba(227, 6, 19, 0.3)); }
+  to { filter: drop-shadow(0 0 2.5rem rgba(227, 6, 19, 0.8)); }
 }
 
 .glitch-text {
@@ -636,23 +607,10 @@
 }
 
 @keyframes glitch {
-
-  0%,
-  100% {
-    text-shadow: 0.05em 0 0 rgba(227, 6, 19, 0.7), -0.05em -0.025em 0 rgba(0, 128, 255, 0.5);
-  }
-
-  25% {
-    text-shadow: -0.05em -0.025em 0 rgba(227, 6, 19, 0.7), 0.025em 0.05em 0 rgba(0, 128, 255, 0.5);
-  }
-
-  50% {
-    text-shadow: 0.025em 0.05em 0 rgba(227, 6, 19, 0.7), 0.05em 0 0 rgba(0, 128, 255, 0.5);
-  }
-
-  75% {
-    text-shadow: -0.025em 0 0 rgba(227, 6, 19, 0.7), -0.025em -0.05em 0 rgba(0, 128, 255, 0.5);
-  }
+  0%, 100% { text-shadow: 0.05em 0 0 rgba(227, 6, 19, 0.7), -0.05em -0.025em 0 rgba(0, 128, 255, 0.5); }
+  25% { text-shadow: -0.05em -0.025em 0 rgba(227, 6, 19, 0.7), 0.025em 0.05em 0 rgba(0, 128, 255, 0.5); }
+  50% { text-shadow: 0.025em 0.05em 0 rgba(227, 6, 19, 0.7), 0.05em 0 0 rgba(0, 128, 255, 0.5); }
+  75% { text-shadow: -0.025em 0 0 rgba(227, 6, 19, 0.7), -0.025em -0.05em 0 rgba(0, 128, 255, 0.5); }
 }
 
 .reveal {
@@ -710,15 +668,8 @@
 }
 
 @keyframes progressPulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 .scroll-top {
@@ -896,28 +847,23 @@
   filter: grayscale(30%);
 }
 
-/* Ajustes para el hero en tablets y móviles */
 @media (max-width: 768px) {
   .hero.fullscreen.about-hero {
     min-height: 50rem !important;
-    /* Reduce la altura mínima */
   }
 
   .about-hero .hero-container {
     padding: 2rem 1.5rem;
-    /* Menos padding lateral y superior */
   }
 
   .about-hero .hero-title {
     font-size: clamp(3.2rem, 8vw, 5rem) !important;
-    /* Título más pequeño en móvil */
     line-height: 1.2;
     margin-bottom: 1rem;
   }
 
   .about-hero .hero-cta {
     flex-direction: column;
-    /* Botones uno debajo del otro */
     gap: 1rem;
     width: 100%;
     align-items: center;
@@ -925,9 +871,7 @@
 
   .about-hero .btn {
     width: 100%;
-    /* Botones ocupan todo el ancho disponible */
     max-width: 28rem;
-    /* Pero no más de 280px */
     margin: 0 auto;
     text-align: center;
   }
@@ -936,17 +880,11 @@
     font-size: 1rem;
     margin-bottom: 1rem;
   }
-
-  .hero-scroll-indicator {
-    bottom: 1rem;
-    /* Sube ligeramente el indicador */
-  }
 }
 
 @media (max-width: 480px) {
   .hero.fullscreen.about-hero {
     min-height: 40rem !important;
-    /* Aún más pequeño en teléfonos pequeños */
   }
 
   .about-hero .hero-title {
@@ -967,7 +905,6 @@
     padding: 1rem 1.5rem;
   }
 }
-
 
 .team-avatar i {
   font-size: 7rem;
@@ -1064,7 +1001,6 @@
     white-space: normal;
     width: 200px;
   }
-
 }
 
 @media (max-width: 480px) {
@@ -1135,7 +1071,6 @@
     white-space: normal;
     width: 200px;
   }
-
 
   .scroll-top {
     width: 4rem;
@@ -1228,5 +1163,298 @@
 
   .glass-deep {
     padding: 1.5rem !important;
+  }
+}
+
+#Persona4 {
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(320%)  skewX(-12deg); }
+}
+
+@keyframes iconBreath {
+  0%, 100% {
+    filter: drop-shadow(0 0 0.5rem rgba(227, 6, 19, 0.4));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 1.6rem rgba(227, 6, 19, 1));
+    transform: scale(1.07);
+  }
+}
+
+@keyframes scanLine {
+  0%   { top: -2px; opacity: 0.6; }
+  80%  { opacity: 0.6; }
+  100% { top: 101%;  opacity: 0; }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes badgePop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.14); }
+  70%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+@keyframes achievementSlide {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes sponsorAppear {
+  from { opacity: 0; transform: translateY(8px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0)  scale(1); }
+}
+
+@keyframes mapGlowPulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(0, 128, 255, 0.3); }
+  50%       { box-shadow: 0 0 55px rgba(0, 128, 255, 0.65), 0 0 90px rgba(227, 6, 19, 0.12); }
+}
+
+@keyframes scrollTopBounce {
+  0%, 100% { transform: scale(1)    translateY(0); }
+  50%       { transform: scale(1.09) translateY(-3px); }
+}
+
+@keyframes socialRipple {
+  0%   { box-shadow: 0 0 0 0   rgba(227, 6, 19, 0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(227, 6, 19, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(227, 6, 19, 0); }
+}
+
+@keyframes timelineDot {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(0, 128, 255, 0.7); }
+  50%       { box-shadow: 0 0 0 7px rgba(0, 128, 255, 0); }
+}
+
+@keyframes glitchBefore {
+  0%, 88%, 100% { transform: translate(0);        opacity: 0; }
+  89%            { transform: translate(-3px, 1px); opacity: 1; }
+  91%            { transform: translate(3px, -1px); opacity: 1; }
+  93%            { transform: translate(0);          opacity: 0; }
+}
+
+@keyframes glitchAfter {
+  0%, 83%, 100% { transform: translate(0);         opacity: 0; }
+  84%            { transform: translate(3px, 2px);  opacity: 1; }
+  86%            { transform: translate(-3px, -2px); opacity: 1; }
+  88%            { transform: translate(0);          opacity: 0; }
+}
+
+@keyframes borderFlicker {
+  0%, 19%, 21%, 23%, 100% {
+    box-shadow: 0 0 8px rgba(227, 6, 19, 0.5), 0 0 22px rgba(227, 6, 19, 0.2);
+  }
+  20%, 22% {
+    box-shadow: none;
+  }
+}
+
+.team-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.045) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%) skewX(-12deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.team-card:hover::after {
+  animation: shimmerSweep 0.65s ease forwards;
+}
+
+.team-card:not(:hover) {
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.team-card:nth-child(2):not(:hover) { animation-delay: 0.5s; }
+.team-card:nth-child(3):not(:hover) { animation-delay: 1s; }
+.team-card:nth-child(4):not(:hover) { animation-delay: 1.5s; }
+.team-card:nth-child(5):not(:hover) { animation-delay: 0.8s; }
+.team-card:nth-child(6):not(:hover) { animation-delay: 0.3s; }
+.team-card:nth-child(7):not(:hover) { animation-delay: 1.2s; }
+
+.team-avatar i {
+  animation: iconBreath 3s ease-in-out infinite;
+}
+
+.team-card:hover .team-avatar i {
+  animation: none;
+  transform: scale(1.1) translateZ(20px);
+  filter: drop-shadow(0 0 1rem var(--red-intense));
+}
+
+.team-avatar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(227, 6, 19, 0.75), transparent);
+  z-index: 4;
+  pointer-events: none;
+  animation: scanLine 3.5s linear infinite;
+}
+
+.team-card:hover .team-badge {
+  animation: badgePop 0.35s ease forwards;
+}
+
+.team-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  transform: translateX(-100%);
+}
+
+.team-badge:hover::before {
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+}
+
+.achievement-item {
+  opacity: 0;
+  animation: achievementSlide 0.5s ease forwards;
+}
+
+.achievement-item:nth-child(1) { animation-delay: 0.05s; }
+.achievement-item:nth-child(2) { animation-delay: 0.15s; }
+.achievement-item:nth-child(3) { animation-delay: 0.25s; }
+.achievement-item:nth-child(4) { animation-delay: 0.35s; }
+.achievement-item:nth-child(5) { animation-delay: 0.45s; }
+.achievement-item:nth-child(6) { animation-delay: 0.55s; }
+
+.achievement-icon {
+  animation: iconBreath 3.5s ease-in-out infinite;
+}
+
+.timeline-date::before {
+  content: '';
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--blue-electric);
+  border-radius: 50%;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+  animation: timelineDot 2.2s ease-in-out infinite;
+}
+
+.sponsor-tag {
+  animation: sponsorAppear 0.45s ease both;
+}
+
+.sponsor-tag:nth-child(odd)  { animation-delay: 0.04s; }
+.sponsor-tag:nth-child(even) { animation-delay: 0.08s; }
+
+.map-enhanced {
+  animation: mapGlowPulse 4s ease-in-out infinite;
+}
+
+.map-enhanced:hover {
+  animation: none;
+}
+
+.social-icon:hover {
+  animation: socialRipple 0.55s ease forwards;
+}
+
+.scroll-top.visible {
+  animation: scrollTopBounce 2.4s ease-in-out infinite;
+}
+
+.scroll-top:hover {
+  animation: none;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.glitch-text::before {
+  color: rgba(0, 128, 255, 0.65);
+  animation: glitchBefore 4s infinite;
+  clip-path: polygon(0 25%, 100% 25%, 100% 45%, 0 45%);
+}
+
+.glitch-text::after {
+  color: rgba(227, 6, 19, 0.65);
+  animation: glitchAfter 4s infinite;
+  clip-path: polygon(0 60%, 100% 60%, 100% 78%, 0 78%);
+}
+
+.mention-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.mention-card:hover {
+  border-left-color: var(--blue-electric);
+  animation: borderFlicker 0.4s ease forwards;
+}
+
+.gallery-item i {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover i {
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 16px var(--blue-electric));
+}
+
+.mentor-avatar i {
+  animation: iconBreath 4s ease-in-out infinite;
+}
+
+.mentor-card:hover .mentor-avatar i {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card:not(:hover),
+  .team-avatar i,
+  .team-avatar::before,
+  .achievement-item,
+  .achievement-icon,
+  .sponsor-tag,
+  .scroll-top.visible,
+  .glitch-text::before,
+  .glitch-text::after,
+  .timeline-date::before,
+  .map-enhanced,
+  .mentor-avatar i {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

@@ -1,212 +1,282 @@
-/**
- * PHOTONIX 7 — SOBRE NOSOTROS
- * JavaScript específico para la página de equipo
- * Versión 4.0 — Scroll reveal definitivo (sin desapariciones)
- */
-
 (() => {
   'use strict';
 
-  // ============================================
-  // 1. DETECCIÓN DE PÁGINA
-  // ============================================
-  const isAboutPage = () => {
-    const path = window.location.pathname;
-    return path.includes('sobre-nosotros') || path.includes('sobre-nosotros.html');
+  if (document.body.dataset.page !== 'about') return;
+
+  const raf = requestAnimationFrame;
+
+  const initCursorHovers = () => {
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+    if (!cursor || !follower) return;
+
+    document.querySelectorAll('.sn-member, .sn-gen-card, .sn-cal-item, .sn-sponsor, .sn-logro-card, .sn-quote, .sn-social-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+        follower.classList.add('active');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+        follower.classList.remove('active');
+      });
+    });
   };
 
-  if (!isAboutPage()) return;
-
-  // ============================================
-  // 2. SCROLL REVEAL MEJORADO (CORAZÓN DEL PROBLEMA)
-  // ============================================
   const initScrollReveal = () => {
-    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    
-    // Si no hay elementos, salir
-    if (!reveals.length) return;
+    const els = document.querySelectorAll('.sn-reveal');
+    if (!els.length) return;
 
-    // Configuración del observer
-    const observer = new IntersectionObserver((entries) => {
+    const obs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Añadir clase active
-          entry.target.classList.add('active');
-          // Dejar de observar este elemento (solo se activa una vez)
-          observer.unobserve(entry.target);
+          entry.target.classList.add('sn-visible');
+          obs.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.2, // Se activa cuando el 20% del elemento es visible
-      rootMargin: '0px' // Sin margen negativo
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-    // Observar cada elemento
-    reveals.forEach(el => observer.observe(el));
-
-    // Fallback: si después de 3 segundos algún elemento no tiene la clase active,
-    // se la forzamos (por si el observer falla o el usuario hace scroll muy rápido)
-    setTimeout(() => {
-      reveals.forEach(el => {
-        if (!el.classList.contains('active')) {
-          el.classList.add('active');
-        }
-      });
-    }, 3000);
+    els.forEach(el => obs.observe(el));
   };
 
-  // ============================================
-  // 3. ANIMACIÓN DE ENTRADA PARA TARJETAS
-  // ============================================
-  const animateTeamCards = () => {
-    const cards = document.querySelectorAll('.team-card');
-    if (!cards.length) return;
-
-    cards.forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(30px) rotateX(5deg)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-      
-      setTimeout(() => {
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0) rotateX(0)';
-      }, 150 + (index * 80));
-    });
-  };
-
-  // ============================================
-  // 4. EFECTO GLOW EN AVATARES
-  // ============================================
-  const initAvatarGlow = () => {
-    const avatars = document.querySelectorAll('.team-avatar, .mentor-avatar');
-    
-    avatars.forEach(avatar => {
-      avatar.addEventListener('mousemove', (e) => {
-        const rect = avatar.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const deltaX = (x - centerX) / 10;
-        const deltaY = (y - centerY) / 10;
-        
-        avatar.style.transform = `perspective(500px) rotateX(${-deltaY}deg) rotateY(${deltaX}deg) scale3d(1.08, 1.08, 1.08)`;
-        
-        const glowX = (x / rect.width) * 100;
-        const glowY = (y / rect.height) * 100;
-        avatar.style.boxShadow = `0 0 30px rgba(227,6,19,0.6), radial-gradient(circle at ${glowX}% ${glowY}%, rgba(0,128,255,0.3) 0%, transparent 70%)`;
-      });
-
-      avatar.addEventListener('mouseleave', () => {
-        avatar.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-        avatar.style.boxShadow = '';
-      });
-    });
-  };
-
-  // ============================================
-  // 5. CONTADORES ANIMADOS
-  // ============================================
   const initCounters = () => {
-    const counters = document.querySelectorAll('.stat-number[data-target], [data-counter]');
-    
-    const observer = new IntersectionObserver((entries) => {
+    const counters = document.querySelectorAll('.sn-counter');
+    if (!counters.length) return;
+
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+    const animateCounter = el => {
+      const target = parseInt(el.dataset.target, 10);
+      if (isNaN(target)) return;
+      const duration = 1400;
+      const start = performance.now();
+
+      const tick = now => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        el.textContent = Math.floor(easeOut(progress) * target);
+        if (progress < 1) raf(tick);
+        else el.textContent = target;
+      };
+      raf(tick);
+    };
+
+    const obs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const el = entry.target;
-          if (el.dataset.animated === 'true') return;
-          el.dataset.animated = 'true';
-
-          const target = parseInt(el.getAttribute('data-target') || el.innerText, 10);
-          if (isNaN(target)) return;
-
-          let current = 0;
-          const step = target / 80;
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              el.innerText = target;
-              clearInterval(timer);
-            } else {
-              el.innerText = Math.floor(current);
-            }
-          }, 16);
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.5 });
 
-    counters.forEach(el => observer.observe(el));
+    counters.forEach(el => obs.observe(el));
   };
 
-  // ============================================
-  // 6. EFECTO DE ESCRITURA EN HERO
-  // ============================================
-  const initHeroTyping = () => {
-    const heroSubtitle = document.querySelector('.hero-title .title-small');
-    if (!heroSubtitle) return;
-    
-    const originalText = heroSubtitle.innerText;
-    if (originalText !== 'el equipo · la historia · el futuro') return;
-    
-    heroSubtitle.innerText = '';
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i < originalText.length) {
-        heroSubtitle.innerText += originalText.charAt(i);
-        i++;
-      } else {
-        clearInterval(timer);
+  const initHeroCanvas = () => {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    const particles = Array.from({ length: 60 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 1.2 + 0.3,
+      alpha: Math.random() * 0.4 + 0.1,
+      color: Math.random() > 0.5 ? '227,6,19' : '0,128,255',
+    }));
+
+    let mouse = { x: -9999, y: -9999 };
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }, { passive: true });
+    canvas.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; }, { passive: true });
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(p => {
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          p.vx -= (dx / dist) * 0.08;
+          p.vy -= (dy / dist) * 0.08;
+        }
+
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(255,255,255,${(1 - dist / 90) * 0.06})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
       }
-    }, 80);
+
+      raf(draw);
+    };
+    raf(draw);
   };
 
-  // ============================================
-  // 7. BOTÓN SCROLL TOP
-  // ============================================
+  const initHeroParallax = () => {
+    const heroImage = document.querySelector('.sn-hero__image');
+    if (!heroImage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      heroImage.style.transform = `translateY(${y * 0.3}px)`;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  };
+
   const initScrollTop = () => {
-    const scrollBtn = document.getElementById('scrollTop');
-    if (!scrollBtn) return;
+    const btn = document.getElementById('scrollTop');
+    if (!btn) return;
 
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        scrollBtn.classList.add('visible');
-      } else {
-        scrollBtn.classList.remove('visible');
-      }
-    });
+      btn.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
 
-    scrollBtn.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   };
 
-  // ============================================
-  // 8. INICIALIZACIÓN GENERAL
-  // ============================================
-  const init = () => {
-    // Forzar visibilidad inicial de las secciones (fallback)
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
+  const initMemberHover = () => {
+    document.querySelectorAll('.sn-member').forEach(member => {
+      member.addEventListener('mousemove', e => {
+        const rect = member.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+        member.style.transform = `perspective(600px) rotateX(${-y}deg) rotateY(${x}deg) translateZ(4px)`;
+      });
+      member.addEventListener('mouseleave', () => {
+        member.style.transform = '';
+      });
     });
-
-    // Ejecutar animaciones después de un breve retraso
-    setTimeout(() => {
-      initScrollReveal();    // ← Este es el que corrige el problema
-      animateTeamCards();
-      initAvatarGlow();
-      initCounters();
-      initHeroTyping();
-      initScrollTop();
-    }, 200);
   };
 
-  if (document.readyState === 'Loading') {
+  const initHeroTyping = () => {
+    const subtitle = document.querySelector('.sn-hero__subtitle');
+    if (!subtitle) return;
+    const text = subtitle.textContent.trim();
+    subtitle.textContent = '';
+
+    const onVisible = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        onVisible.disconnect();
+        let i = 0;
+        const type = () => {
+          if (i < text.length) {
+            subtitle.textContent += text[i++];
+            setTimeout(type, 45);
+          }
+        };
+        setTimeout(type, 900);
+      }
+    });
+    onVisible.observe(subtitle);
+  };
+
+  const initCalendarStagger = () => {
+    const items = document.querySelectorAll('.sn-cal-item');
+    if (!items.length) return;
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = Array.from(items).indexOf(entry.target);
+          entry.target.style.transitionDelay = `${idx * 60}ms`;
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    items.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      obs.observe(item);
+    });
+  };
+
+  const initMemberStagger = () => {
+    const cards = document.querySelectorAll('.sn-member, .sn-gen-card');
+    if (!cards.length) return;
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const siblings = Array.from(entry.target.parentElement.children);
+          const idx = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${idx * 80}ms`;
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(24px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, background 0.3s ease';
+      obs.observe(card);
+    });
+  };
+
+  const init = () => {
+    initCursorHovers();
+    initScrollReveal();
+    initCounters();
+    initHeroCanvas();
+    initHeroParallax();
+    initScrollTop();
+    initMemberHover();
+    initHeroTyping();
+    initCalendarStagger();
+    initMemberStagger();
+  };
+
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
 
-  // Exponer globalmente (debug)
-  window.PhotonixAbout = { initScrollReveal };
 })();
