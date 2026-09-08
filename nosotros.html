@@ -1,622 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Photonix 7 — Sobre Nosotros · Universidad Politécnica de Pénjamo</title>
-  <meta name="description" content="Conoce al equipo Photonix 7: estudiantes, docentes y la historia detrás del hiperdeportivo eléctrico de la UPP, con datos reales de la carpeta técnica.">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="theme-color" content="#111114">
+  <title>Nosotros — Photonix 7 · Ingeniería con identidad</title>
+  <meta name="description" content="Somos 10 estudiantes y 2 asesores de la Universidad Politécnica de Pénjamo. Conoce al equipo, la historia y la comunidad detrás de Photonix 7.">
+  <meta property="og:title" content="Nosotros — Photonix 7">
+  <meta property="og:description" content="La energía empieza con las personas. Conoce al equipo que construye el futuro de la movilidad desde Pénjamo.">
+  <meta property="og:image" content="img/1.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="img/logos/Photonix.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/sobrenosotros.css">
-  <link rel="stylesheet" href="css/loader.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="js/site.js" defer></script>
+  <script src="js/sobrenosotros.js" defer></script>
 </head>
+<body class="about-page">
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-8Z"/></symbol>
+    <symbol id="icon-trophy" viewBox="0 0 24 24"><path d="M8 3h8v7a4 4 0 0 1-8 0ZM8 5H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 2v6m-4 1h8"/></symbol>
+  </defs></svg>
 
-<body>
-  <div class="main-container" id="loader">
-    <div class="loader">
-      <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="chipGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#2d2d2d" />
-            <stop offset="100%" stop-color="#0f0f0f" />
-          </linearGradient>
-          <linearGradient id="textGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#eeeeee" />
-            <stop offset="100%" stop-color="#888888" />
-          </linearGradient>
-          <linearGradient id="pinGradient" x1="1" y1="0" x2="0" y2="0">
-            <stop offset="0%" stop-color="#bbbbbb" />
-            <stop offset="50%" stop-color="#888888" />
-            <stop offset="100%" stop-color="#555555" />
-          </linearGradient>
-        </defs>
-        <g id="traces">
-          <path d="M100 100 H200 V210 H326" class="trace-bg" />
-          <path d="M100 100 H200 V210 H326" class="trace-flow purple" />
-          <path d="M80 180 H180 V230 H326" class="trace-bg" />
-          <path d="M80 180 H180 V230 H326" class="trace-flow blue" />
-          <path d="M60 260 H150 V250 H326" class="trace-bg" />
-          <path d="M60 260 H150 V250 H326" class="trace-flow yellow" />
-          <path d="M100 350 H200 V270 H326" class="trace-bg" />
-          <path d="M100 350 H200 V270 H326" class="trace-flow green" />
-          <path d="M700 90 H560 V210 H474" class="trace-bg" />
-          <path d="M700 90 H560 V210 H474" class="trace-flow blue" />
-          <path d="M740 160 H580 V230 H474" class="trace-bg" />
-          <path d="M740 160 H580 V230 H474" class="trace-flow green" />
-          <path d="M720 250 H590 V250 H474" class="trace-bg" />
-          <path d="M720 250 H590 V250 H474" class="trace-flow red" />
-          <path d="M680 340 H570 V270 H474" class="trace-bg" />
-          <path d="M680 340 H570 V270 H474" class="trace-flow yellow" />
-        </g>
-        <rect x="330" y="190" width="140" height="100" rx="20" ry="20" fill="url(#chipGradient)" stroke="#222" stroke-width="3" filter="drop-shadow(0 0 6px rgba(0,0,0,0.8))" />
-        <g>
-          <rect x="322" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-          <rect x="322" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-          <rect x="322" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-          <rect x="322" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-        </g>
-        <g>
-          <rect x="470" y="205" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-          <rect x="470" y="225" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-          <rect x="470" y="245" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-          <rect x="470" y="265" width="8" height="10" fill="url(#pinGradient)" rx="2" />
-        </g>
-        <text x="400" y="240" font-family="Arial, sans-serif" font-size="22" fill="url(#textGradient)" text-anchor="middle" alignment-baseline="middle">Loading</text>
-        <circle cx="100" cy="100" r="5" fill="black" />
-        <circle cx="80" cy="180" r="5" fill="black" />
-        <circle cx="60" cy="260" r="5" fill="black" />
-        <circle cx="100" cy="350" r="5" fill="black" />
-        <circle cx="700" cy="90" r="5" fill="black" />
-        <circle cx="740" cy="160" r="5" fill="black" />
-        <circle cx="720" cy="250" r="5" fill="black" />
-        <circle cx="680" cy="340" r="5" fill="black" />
-      </svg>
-    </div>
-  </div>
-  <a href="index.html"><img src="img/logos/Photonix.svg" alt="Photonix 7" class="floating-logo"></a>
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
-  <div class="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="menu-fullscreen">
-    <div class="menu-bg-overlay"></div>
-    <div class="menu-container">
-      <nav>
-        <ul>
-          <li><a href="index.html" class="menu-link"><span class="menu-index">00</span> inicio</a></li>
-          <li><a href="nosotros.html" class="menu-link"><span class="menu-index">01</span> sobre nosotros</a></li>
-          <li><a href="index.html#design" class="menu-link"><span class="menu-index">02</span> diseño</a></li>
-          <li><a href="index.html#engineering" class="menu-link"><span class="menu-index">03</span> ingeniería</a></li>
-          <li><a href="index.html#performance" class="menu-link"><span class="menu-index">04</span> rendimiento</a></li>
-          <li><a href="index.html#safety" class="menu-link"><span class="menu-index">05</span> seguridad</a></li>
-          <li><a href="index.html#gallery" class="menu-link"><span class="menu-index">06</span> galería</a></li>
-          <li><a href="index.html#driving" class="menu-link"><span class="menu-index">07</span> conducción</a></li>
-          <li><a href="index.html#vision" class="menu-link"><span class="menu-index">08</span> visión</a></li>
-        </ul>
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="wordmark" aria-label="Photonix 7, inicio">PHOTONIX<span>7</span><i aria-hidden="true"></i></a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#origen" data-section="origen">Nuestra historia</a>
+        <a href="#team" data-section="team">El equipo</a>
+        <a href="#competencia" data-section="competencia">Competencia</a>
+        <a href="#patrocinadores" data-section="patrocinadores">Aliados</a>
       </nav>
-      <div class="menu-footer">
-        <p>© 2026 Photonix 7 — Universidad Politécnica de Pénjamo</p>
-        <div class="menu-social">
-          <span>IG</span>
-          <span>FB</span>
-          <span>YT</span>
-        </div>
+      <div class="header-actions">
+        <a class="header-store" href="tienda.html">Tienda oficial <svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false" hidden><span></span><span></span></button>
       </div>
     </div>
-  </div>
-  <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
-  <main>
-    <section id="about-hero" class="hero fullscreen about-hero" style="height: 100vh; min-height: 60rem;">
-      <div class="hero-bg-layer"></div>
-      <div class="hero-image" style="background-image: url('img/1.jpg');"></div>
-      <div class="hero-particles"></div>
-      <div class="hero-grid-overlay"></div>
-      <div class="hero-container" style="flex-direction: column; text-align: center;">
-        <div class="hero-badge">
-          <span><i class="fas fa-users"></i> photonix 7 · identidad</span>
-        </div>
-        <h1 class="hero-title" style="font-size: clamp(4rem, 10vw, 8rem);">
-          <span class="title-line">Sobre Nosotros</span>
-          <span class="title-line title-small">el equipo · la historia · el futuro</span>
-        </h1>
-        <div class="hero-cta">
-          <a href="#team" class="btn btn-primary"><i class="fas fa-arrow-down"></i> conocer al equipo</a>
-          <a href="index.html" class="btn btn-outline"><i class="fas fa-home"></i> volver al inicio</a>
-        </div>
-      </div>
-    </section>
-    <section id="filosofia" class="narrative reveal" style="background: #000;">
-      <div class="section-container">
-        <div class="narrative-grid" style="align-items: center;">
-          <div class="narrative-content">
-            <span class="section-tag">01 · ORIGEN</span>
-            <h2>Universidad<br>Politecnica de Pénjamo</h2>
-            <p class="text-block" style="font-size: 1.8rem;">En las aulas de la UPP, siete estudiantes de Ingeniería Mecatrónica y Automotriz aceptaron el reto: diseñar y construir un vehículo eléctrico de competencia desde cero. Con la guía de dos docentes y el apoyo de la comunidad, Photonix 7 se convirtió en el primer hiperdeportivo eléctrico hecho en Pénjamo.</p>
-            <div style="display: flex; gap: 2rem; margin-top: 3rem;">
-              <div><span class="stat-number counter" data-target="7">7</span><br>estudiantes</div>
-              <div><span class="stat-number counter" data-target="2">2</span><br>ingenierías</div>
-              <div><span class="stat-number counter" data-target="1">1</span><br>vehículo</div>
-            </div>
-          </div>
-          <div class="narrative-visual">
-            <div class="glass-deep" style="padding: 2rem;">
-              <iframe class="map-enhanced" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2290.302271734898!2d-101.6551145878445!3d20.44155110995861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c6c5c61f00139%3A0x5ee452f82087a3c6!2sUniversidad%20Polit%C3%A9cnica%20de%20P%C3%A9njamo!5e0!3m2!1ses!2smx!4v1771106998538!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="engineering reveal" style="background: #0a0a0a;">
-      <div class="section-container">
-        <span class="section-tag">02 · PROYECTO</span>
-        <h2 class="glitch-text">Un hiperdeportivo de tres ruedas</h2>
-        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; margin-top: 4rem;">
-          <div class="glass-deep" style="padding: 2rem;">
-            <div style="font-size: 4rem; color: var(--red-intense);"><i class="fas fa-ruler"></i></div>
-            <h3>Dimensiones</h3>
-            <p>Largo: 211 cm · Ancho: 73.2 cm · Alto: 104 cm</p>
-          </div>
-          <div class="glass-deep" style="padding: 2rem;">
-            <div style="font-size: 4rem; color: var(--blue-electric);"><i class="fas fa-cogs"></i></div>
-            <h3>Configuración</h3>
-            <p>3 ruedas (2 delanteras, 1 trasera motriz) · Tracción trasera · Motor hub QS 273 8000W</p>
-          </div>
-          <div class="glass-deep" style="padding: 2rem;">
-            <div style="font-size: 4rem; color: var(--red-intense);"><i class="fas fa-bolt"></i></div>
-            <h3>Batería</h3>
-            <p>LiFePO4 51.2V · 20Ah · 1 kWh · Autonomía estimada 40 km</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="team" style="background: #000; padding: 8rem 0;">
-      <div class="section-container">
-        <span class="section-tag">03 · TALENTO</span>
-        <h2>Los creadores</h2>
-        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; margin-top: 5rem;">
-          <div class="team-card" data-tooltip="Líder y especialista en electrónica. Proyecto AC/DC ganador en Expoemprende 2024.">
-            <div class="team-avatar"><i class="fas fa-microchip"></i></div>
-            <h3>Gustavo Romero</h3>
-            <span class="team-badge">Líder · Electrónica</span>
-            <p>Mecatrónica. Diagnóstico de fallas y sistemas automatizados.</p>
-          </div>
-          <div class="team-card" data-tooltip="Programación, diseño 3D y soldadura electrónica.">
-            <div class="team-avatar"><i class="fas fa-code"></i></div>
-            <h3>Nicole Gutiérrez</h3>
-            <span class="team-badge blue">Programación · 3D</span>
-            <p>Mecatrónica. Evaluación de costos y viabilidad técnica.</p>
-          </div>
-          <div class="team-card" data-tooltip="Diseño e instalación de componentes eléctricos, optimización energética.">
-            <div class="team-avatar"><i class="fas fa-bolt"></i></div>
-            <h3>Christian Rodríguez</h3>
-            <span class="team-badge">Eléctrica · Cableado</span>
-            <p>Mecatrónica. Cableado y sistemas de potencia.</p>
-          </div>
-          <div class="team-card" data-tooltip="Modelado 3D, chasis y análisis estructural.">
-            <div class="team-avatar"><i class="fas fa-drafting-compass"></i></div>
-            <h3>José Alfredo Reyes</h3>
-            <span class="team-badge blue">Diseño mecánico</span>
-            <p>Automotriz. Ensamblaje mecánico y simulaciones.</p>
-          </div>
-          <div class="team-card" data-tooltip="Soldadura, planos, selección de materiales.">
-            <div class="team-avatar"><i class="fas fa-wrench"></i></div>
-            <h3>Cesar Galván</h3>
-            <span class="team-badge">Fabricación · Chasis</span>
-            <p>Mecatrónica. Construcción del prototipo.</p>
-          </div>
-          <div class="team-card" data-tooltip="Diseño de chasis, montaje mecánico y piloto de pruebas.">
-            <div class="team-avatar"><i class="fas fa-helmet-safety"></i></div>
-            <h3>Timoteo Negrete</h3>
-            <span class="team-badge blue">Piloto · Diseño</span>
-            <p>Automotriz. Pruebas en pista.</p>
-          </div>
-          <div class="team-card" data-tooltip="Circuitos de control y potencia, diagnóstico de fallas eléctricas.">
-            <div class="team-avatar"><i class="fas fa-plug"></i></div>
-            <h3>Jorge González</h3>
-            <span class="team-badge">Sistema eléctrico</span>
-            <p>Mecatrónica. Diseño de circuitos.</p>
-          </div>
-          <div class="team-card" data-tooltip="Asesor en mecánica, electricidad y electrónica. 13 años de experiencia.">
-            <div class="team-avatar"><i class="fas fa-chalkboard-teacher"></i></div>
-            <h3>Alexis Robledo</h3>
-            <span class="team-badge">Asesor · Mecatrónica</span>
-            <p>Ing. Electromecánico, Maestría en Mecatrónica.</p>
-          </div>
-          <div class="team-card" data-tooltip="Coordinador y gestor de proyectos triple impacto.">
-            <div class="team-avatar"><i class="fas fa-users-cog"></i></div>
-            <h3>José Mendoza</h3>
-            <span class="team-badge blue">Coordinador</span>
-            <p>Ingeniero Industrial, Maestría.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="new-members-section reveal">
-      <div class="section-container">
-        <span class="section-tag">04 · NUEVOS TALENTOS</span>
-        <h2>Generación 2026</h2>
-        <p style="font-size: 1.8rem; color: rgba(255,255,255,0.7); margin-bottom: 4rem;">El equipo crece con la incorporación de nuevos estudiantes que aportan energía y conocimiento fresco.</p>
-        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem;">
-          <div class="team-card" data-tooltip="Especialista en sistemas embebidos e IoT.">
-            <div class="team-avatar"><i class="fas fa-microchip"></i></div>
-            <h3>persona 1</h3>
-            <span class="team-badge">Sistemas Embebidos</span>
-            <p>Ingeniería Mecatrónica. Desarrollo de controladores y telemetría.</p>
-          </div>
-          <div class="team-card" data-tooltip="Diseño y simulación aerodinámica.">
-            <div class="team-avatar"><i class="fas fa-wind"></i></div>
-            <h3>persona 2</h3>
-            <span class="team-badge blue">Aerodinámica</span>
-            <p>Ingeniería Automotriz. Optimización de flujo y materiales compuestos.</p>
-          </div>
-          <div class="team-card" data-tooltip="Gestión de proyectos y sustentabilidad.">
-            <div class="team-avatar"><i class="fas fa-leaf"></i></div>
-            <h3>persona 3</h3>
-            <span class="team-badge">Sustentabilidad</span>
-            <p>Ingeniería Industrial. Análisis de ciclo de vida y eficiencia energética.</p>
-          </div>
-          <div class="team-card" data-tooltip="Gestión de proyectos y sustentabilidad." id="Persona4">
-            <div class="team-avatar"><i class="fas fa-leaf"></i></div>
-            <h3>persona 4</h3>
-            <span class="team-badge">Sustentabilidad</span>
-            <p>Ingeniería Industrial. Análisis de ciclo de vida y eficiencia energética.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section style="background: linear-gradient(145deg, #0a0a0a, #000); padding: 8rem 0; position: relative; overflow: hidden;" class="reveal">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; pointer-events: none;">
-        <svg width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none">
-          <path d="M100 200 L300 200 L300 400 L500 400 L500 600 L700 600" stroke="#E30613" stroke-width="2" fill="none" stroke-dasharray="10 10">
-            <animate attributeName="stroke-dashoffset" from="0" to="100" dur="20s" repeatCount="indefinite" />
-          </path>
-          <path d="M900 200 L700 200 L700 400 L500 400 L500 200 L300 200" stroke="#0080FF" stroke-width="2" fill="none" stroke-dasharray="10 10">
-            <animate attributeName="stroke-dashoffset" from="0" to="-100" dur="20s" repeatCount="indefinite" />
-          </path>
-          <circle cx="300" cy="200" r="4" fill="#E30613">
-            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="500" cy="400" r="4" fill="#0080FF">
-            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="700" cy="600" r="4" fill="#E30613">
-            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
-          </circle>
-        </svg>
-      </div>
-      <div class="section-container" style="position: relative; z-index: 2;">
-        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem;">
-          <span class="section-tag" style="padding-left: 0; margin: 0;">
-            <i class="fas fa-flag-checkered" style="margin-right: 0.8rem;"></i>05 · COMPETENCIA NACIONAL
-          </span>
-          <span style="background: var(--red-intense); color: #000; padding: 0.5rem 2rem; border-radius: 5rem; font-weight: 700; letter-spacing: 0.1rem; font-size: 1.4rem;">
-            <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>31° ANIVERSARIO
-          </span>
-        </div>
-        <h2 style="font-size: clamp(4rem, 8vw, 7rem); line-height: 1.1; margin-bottom: 2rem;">
-          <span style="display: block; color: #fff;">ELECTRATÓN</span>
-          <span style="display: block; color: var(--blue-electric); font-size: 0.8em;">MÉXICO · 2026</span>
-        </h2>
-        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; margin-bottom: 5rem;">
-          <div>
-            <p style="font-size: 1.8rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 2rem;">
-              <i class="fas fa-quote-left" style="color: var(--red-intense); margin-right: 0.5rem;"></i>
-              El campeonato de diseño y construcción de autos eléctricos más importante de México, celebrando su <strong style="color: var(--red-intense);">31 aniversario</strong> con un serial binacional (México - Estados Unidos). Siete fechas, sedes icónicas y la evolución hacia baterías de litio.
-            </p>
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-              <div style="background: rgba(227,6,19,0.1); border-radius: 1rem; padding: 1rem 2rem; border-left: 4px solid var(--red-intense);">
-                <i class="fas fa-battery-full" style="color: var(--blue-electric); margin-right: 0.8rem;"></i>
-                <span style="font-weight: 600;">Baterías Li-ion</span>
-                <span style="display: block; font-size: 1.3rem; color: rgba(255,255,255,0.6);">Desde 2025 solo litio · Más ligeras y eficientes</span>
-              </div>
-              <div style="background: rgba(0,128,255,0.1); border-radius: 1rem; padding: 1rem 2rem; border-left: 4px solid var(--blue-electric);">
-                <i class="fas fa-tachometer-alt" style="color: var(--red-intense); margin-right: 0.8rem;"></i>
-                <span style="font-weight: 600;">60 - 120 km/h</span>
-                <span style="display: block; font-size: 1.3rem; color: rgba(255,255,255,0.6);">Velocidad máxima según categoría</span>
-              </div>
-            </div>
-          </div>
-          <div class="glass-deep" style="padding: 2rem; text-align: center; background: rgba(0,0,0,0.5);">
-            <i class="fas fa-trophy" style="font-size: 4rem; color: var(--blue-electric); margin-bottom: 1rem;"></i>
-            <h3 style="font-size: 2.4rem;">Categorías 2026</h3>
-            <ul style="list-style: none; padding: 0; text-align: left;">
-              <li style="margin: 1rem 0;"><i class="fas fa-microchip" style="color: var(--red-intense); width: 2.5rem;"></i> <strong>Racer (RCR):</strong> 6kW/h · sin plomo · suspensión completa</li>
-              <li style="margin: 1rem 0;"><i class="fas fa-car" style="color: var(--blue-electric); width: 2.5rem;"></i> <strong>Electratón B:</strong> 3.4 kW/h · acceso</li>
-            </ul>
-            <small style="color: rgba(255,255,255,0.4);">Reglamento vigente FIA / OMDAI</small>
-          </div>
-        </div>
-        <h3 style="font-size: 3rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem;">
-          <i class="fas fa-calendar-alt" style="color: var(--red-intense);"></i> Calendario Oficial 2026
-        </h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-          <div style="background: linear-gradient(145deg, #1a1a1a, #0a0a0a); border-radius: 2rem; padding: 2rem; border: 1px solid rgba(227,6,19,0.3); box-shadow: 0 0 30px rgba(227,6,19,0.2);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span style="background: var(--red-intense); color: #000; padding: 0.3rem 1rem; border-radius: 5rem; font-weight: 700;">#0 · Exhibición</span>
-              <span style="color: var(--blue-electric); font-size: 1.8rem; font-weight: 800;">10 ENE</span>
-            </div>
-            <h4 style="font-size: 2rem; margin-bottom: 0.5rem;">Formula E Mexico City ePrix</h4>
-            <p style="color: rgba(255,255,255,0.7);"><i class="fas fa-map-marker-alt" style="color: var(--red-intense); margin-right: 0.5rem;"></i>Autódromo Hermanos Rodríguez, CDMX</p>
-            <div style="margin-top: 1rem; background: rgba(0,128,255,0.1); border-radius: 1rem; padding: 0.5rem 1rem;">
-              <i class="fas fa-medal" style="color: gold;"></i> <strong>Podio Electratón:</strong> 1° ULSA CDMX · 2° ULSA Bajío · 3° UPJR
-            </div>
-          </div>
-          <div style="background: #111; border-radius: 2rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.05);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-              <span style="color: var(--blue-electric); font-weight: 700;">#1 · Binacional</span>
-              <span style="color: var(--blue-electric);">11 ABR</span>
-            </div>
-            <h4>Ace Race TX Trophy</h4>
-            <p><i class="fas fa-map-marker-alt" style="color: var(--red-intense);"></i> San Antonio, Texas · USA</p>
-            <p style="font-size: 1.3rem; color: rgba(255,255,255,0.5);">Apertura binacional · Equipos México-USA</p>
-          </div>
-          <div style="background: #111; border-radius: 2rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.05);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-              <span style="color: var(--blue-electric); font-weight: 700;">#2 · Virtual</span>
-              <span style="color: var(--blue-electric);">16 MAY</span>
-            </div>
-            <h4>Escrutinios Remotos</h4>
-            <p><i class="fas fa-laptop" style="color: var(--red-intense);"></i> Validación técnica online</p>
-          </div>
-          <div style="background: #111; border-radius: 2rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.05);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-              <span style="color: var(--blue-electric); font-weight: 700;">#3 · México</span>
-              <span style="color: var(--blue-electric);">6 JUN</span>
-            </div>
-            <h4>Toluca Wooden Trophy</h4>
-            <p><i class="fas fa-map-marker-alt" style="color: var(--red-intense);"></i> Kartódromo La Marquesa, EDOMEX</p>
-            <p style="font-size: 1.3rem; color: rgba(255,255,255,0.5);">Primera carrera en territorio nacional</p>
-          </div>
-          <div style="background: #111; border-radius: 2rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.05);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-              <span style="color: var(--blue-electric); font-weight: 700;">#4</span>
-              <span style="color: var(--blue-electric);">25 JUL</span>
-            </div>
-            <h4>Cuautla Summer Trophy</h4>
-            <p><i class="fas fa-map-marker-alt" style="color: var(--red-intense);"></i> Kartódromo Internacional de Cuautla, Morelos</p>
-          </div>
-          <div style="background: #111; border-radius: 2rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.05);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-              <span style="color: var(--blue-electric); font-weight: 700;">#5</span>
-              <span style="color: var(--blue-electric);">28 AGO</span>
-            </div>
-            <h4>Querétaro Bajío Trophy</h4>
-            <p><i class="fas fa-map-marker-alt" style="color: var(--red-intense);"></i> Querétaro</p>
-            <p style="font-size: 1.3rem; color: rgba(255,255,255,0.5);">Circuito por definir · Fecha confirmada</p>
-          </div>
-          <div style="background: #111; border-radius: 2rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.05);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-              <span style="color: var(--blue-electric); font-weight: 700;">#6</span>
-              <span style="color: var(--blue-electric);">10 OCT</span>
-            </div>
-            <h4>Guadalajara Western Trophy</h4>
-            <p><i class="fas fa-map-marker-alt" style="color: var(--red-intense);"></i> Guadalajara, Jalisco</p>
-          </div>
-          <div style="background: linear-gradient(145deg, #1a1a1a, #0a0a0a); border-radius: 2rem; padding: 2rem; border: 2px solid var(--blue-electric); box-shadow: 0 0 30px rgba(0,128,255,0.3);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-              <span style="background: var(--blue-electric); color: #000; padding: 0.3rem 1rem; border-radius: 5rem; font-weight: 700;">GRAN FINAL</span>
-              <span style="color: var(--blue-electric); font-size: 1.8rem;">13-14 NOV</span>
-            </div>
-            <h4>Monterrey Mont e-Race Trophy</h4>
-            <p><i class="fas fa-map-marker-alt" style="color: var(--red-intense);"></i> Santiago, Monterrey</p>
-            <p style="margin-top: 1rem;"><i class="fas fa-crown" style="color: gold;"></i> Campeones 2026</p>
-          </div>
-        </div>
-        <div style="margin-top: 4rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
-          <div style="background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); border-radius: 2rem; padding: 2rem; flex: 1 1 300px; border: 1px solid rgba(255,255,255,0.05);">
-            <i class="fas fa-bolt" style="font-size: 3rem; color: var(--red-intense); margin-bottom: 1rem; display: block;"></i>
-            <h4 style="font-size: 2rem; margin-bottom: 1rem;">Photonix 7 en Electratón</h4>
-            <p>El equipo de la UPP competirá en la categoría Racer (RCR) con su nuevo prototipo mejorado. Objetivo: posicionarse entre los 10 primeros.</p>
-          </div>
-          <div style="background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); border-radius: 2rem; padding: 2rem; flex: 1 1 300px; border: 1px solid rgba(255,255,255,0.05);">
-            <i class="fas fa-users" style="font-size: 3rem; color: var(--blue-electric); margin-bottom: 1rem; display: block;"></i>
-            <h4 style="font-size: 2rem; margin-bottom: 1rem;">Escuderías participantes</h4>
-            <p>ULSA, UPJR, ITESM, UNAM, UVM, UPP (Photonix 7) y más de 20 equipos de todo el país.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="gallery" style="background: #000; padding: 8rem 0;" class="reveal">
-      <div class="section-container">
-        <span class="section-tag">06 · LOGROS</span>
-        <h2>Reconocimientos</h2>
-        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 4rem;">
-          <div class="achievements-panel">
-            <ul class="achievements-list">
-              <li class="achievement-item"><i class="fas fa-trophy achievement-icon"></i><span class="achievement-text">Proyecto AC/DC ganador Expoemprende 2024</span></li>
-              <li class="achievement-item"><i class="fas fa-flask achievement-icon"></i><span class="achievement-text">Seleccionado Congreso de Ciencias CIO</span></li>
-              <li class="achievement-item"><i class="fas fa-bolt achievement-icon"></i><span class="achievement-text">Primer vehículo diseñado en Pénjamo</span></li>
-            </ul>
-          </div>
-          <div class="achievements-panel">
-            <ul class="achievements-list">
-              <li class="achievement-item"><i class="fas fa-handshake achievement-icon"></i><span class="achievement-text">15 patrocinadores locales</span></li>
-              <li class="achievement-item"><i class="fas fa-battery-full achievement-icon"></i><span class="achievement-text">Foro de Energías Limpias 2025</span></li>
-              <li class="achievement-item"><i class="fas fa-medal achievement-icon"></i><span class="achievement-text">Premio Municipal de Juventud</span></li>
-            </ul>
-          </div>
-          <div class="glass-deep" style="padding: 2rem; text-align: center;">
-            <i class="fas fa-coins" style="font-size: 6rem; color: var(--blue-electric);"></i>
-            <p style="margin-top: 1rem;">Inversión total: <strong>$68,135 MXN</strong></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section style="background: #0a0a0a; padding: 8rem 0;" class="reveal">
-      <div class="section-container">
-        <span class="section-tag">07 · GALERÍA</span>
-        <h2>Así construimos el sueño</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <i class="fas fa-cube"></i>
-            <p>Diseño 3D del chasis</p>
-          </div>
-          <div class="gallery-item">
-            <i class="fas fa-tools"></i>
-            <p>Ensamble mecánico</p>
-          </div>
-          <div class="gallery-item">
-            <i class="fas fa-bolt"></i>
-            <p>Sistema eléctrico</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section style="background: #000; padding: 8rem 0;" class="reveal">
-      <div class="section-container">
-        <span class="section-tag">08 · PRENSA</span>
-        <h2>Lo que dicen de nosotros</h2>
-        <div style="margin-top: 4rem;">
-          <div class="mention-card">
-            <h4><i class="fas fa-newspaper"></i> El Sol de Pénjamo</h4>
-            <p>"Estudiantes de la UPP crean el primer vehículo eléctrico de la región, un proyecto que promete poner a Pénjamo en el mapa de la innovación."</p>
-          </div>
-          <div class="mention-card">
-            <h4><i class="fas fa-tv"></i> TV4 Guanajuato</h4>
-            <p>"Photonix 7: talento joven que electrifica el futuro. Conoce a los creadores del hiperdeportivo."</p>
-          </div>
-          <div class="mention-card">
-            <h4><i class="fas fa-car"></i> Revista Automotriz</h4>
-            <p>"Un diseño audaz y tecnología de punta hecha por estudiantes mexicanos."</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section style="background: #0a0a0a; padding: 8rem 0;" class="reveal">
-      <div class="section-container">
-        <span class="section-tag">09 · ALIANZAS</span>
-        <h2>Orgullo local</h2>
-        <div class="sponsor-cloud">
-          <span class="sponsor-tag red">Hacienda Corralejo <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag blue">La Caldera <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag red">Multico <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag blue">Turbomáquinas <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag red">Carnicería Sánchez <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag blue">Carnicería "Los Juanes" <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag red">Invernaderos el Rosal <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag blue">PEMEX Arias <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag red">Recicla.lo <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag blue">Sigma Alimentos <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag red">Grúas Sálias <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag blue">Ferretería El Agricultor <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag red">Refaccionaria Carrillo <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag blue">Flow Music <span class="sponsor-amount">$1,000</span></span>
-          <span class="sponsor-tag red">Sunsteel <span class="sponsor-amount">$1,500</span></span>
-        </div>
-      </div>
-    </section>
-    <section style="background: #000; padding: 8rem 0;" class="reveal">
-      <div class="section-container" style="text-align: center;">
-        <span class="section-tag">10 · IDENTIDAD</span>
-        <h2 class="glitch-text">Photonix 7</h2>
-        <div style="display: flex; justify-content: center; gap: 4rem; align-items: center; flex-wrap: wrap; margin: 4rem 0;">
-          <div class="logo-seccion">
-            <img src="img/logos/Photonix.svg" alt="Photonix 7" style="width: 300px; filter: drop-shadow(0 0 30px #E30613);">
-          </div>
-          <div style="max-width: 600px; text-align: left;">
-            <p><span class="highlight">P</span> de Pénjamo, <span class="highlight">Fotón</span> por energía limpia, <span class="highlight">-ix</span> por herencia mexicana. El <span class="highlight">7</span> simboliza la unión del equipo. El sol geométrico evoca nuestras raíces y la fuerza que nos impulsa.</p>
-          </div>
-        </div>
-        <div class="sponsor-visual">
-          <svg class="sponsor-svg" width="260" height="200" viewBox="0 0 260 200">
-            <rect x="20" y="40" width="220" height="120" rx="10" stroke="#E30613" stroke-width="1.5" fill="none" stroke-dasharray="10 5" />
-            <circle cx="100" cy="100" r="15" fill="#0080FF" fill-opacity="0.3" />
-            <circle cx="160" cy="100" r="15" fill="#0080FF" fill-opacity="0.3" />
-            <text x="130" y="110" text-anchor="middle" fill="white" font-size="14">PHOTONIX 7</text>
-          </svg>
-        </div>
-      </div>
-    </section>
-    <section style="background: #0a0a0a; padding: 8rem 0;" class="reveal">
-      <div class="section-container" style="text-align: center;">
-        <span class="section-tag">11 · CONECTA</span>
-        <h2>Síguenos</h2>
-        <div class="social-grid">
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <p style="margin-top: 3rem; color: rgba(255,255,255,0.5);">#Photonix7 #EnergíaQueTransforma</p>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="img/logos/Photonix.svg" alt="Photonix 7" width="48" height="48" style="filter: brightness(0) invert(1);">
-        <span class="footer-tagline">energía que transforma</span>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Photonix 7</h4>
-          <ul>
-            <li><a href="nosotros.html">sobre nosotros</a></li>
-            <li><a href="index.html#design">diseño</a></li>
-            <li><a href="index.html#engineering">ingeniería</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>competición</h4>
-          <ul>
-            <li>E‑Challenge Gto 2025</li>
-            <li>Electratón</li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>origen</h4>
-          <ul>
-            <li>Universidad Politécnica de Pénjamo</li>
-            <li>Guanajuato, México</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Photonix 7 · todos los derechos reservados</span>
-    </div>
-  </footer>
-  <script src="js/main.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="js/loader.js"></script>
-  <script src="js/sobrenosotros.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const reveals = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-      });
-      reveals.forEach(el => observer.observe(el));
-      const scrollTopBtn = document.getElementById('scrollTop');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          scrollTopBtn.classList.add('visible');
-        } else {
-          scrollTopBtn.classList.remove('visible');
-        }
-      });
-      scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
-</body>
+    <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+  </header>
 
+  <dialog class="mobile-menu" id="mobile-menu" aria-labelledby="menu-title">
+    <div class="menu-top"><span class="eyebrow" id="menu-title">Explora Photonix 7</span><button class="icon-button" id="menu-close" type="button" aria-label="Cerrar menú"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+    <nav aria-label="Navegación móvil">
+      <a href="index.html"><span>01</span>Inicio<svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
+      <a href="#origen"><span>02</span>Nuestra historia<svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
+      <a href="#team"><span>03</span>El equipo<svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
+      <a href="#competencia"><span>04</span>Competencia<svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
+      <a href="#patrocinadores"><span>05</span>Nuestros aliados<svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
+      <a href="vehiculo.html"><span>06</span>El vehículo<svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a>
+    </nav>
+    <p class="menu-origin">10 estudiantes. 2 asesores. Un propósito.<br>Hecho con orgullo en Pénjamo, Guanajuato.</p>
+  </dialog>
+
+  <main id="main-content" tabindex="-1">
+    <section class="about-hero" id="nos-hero" aria-labelledby="about-title">
+      <div class="container">
+        <nav class="about-breadcrumb" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Nosotros</span></nav>
+        <div class="about-intro">
+          <div><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Personas. Ideas. Movimiento.</p><h1 id="about-title">La energía empieza<br><span>con las personas.</span></h1></div>
+          <div class="about-intro-copy"><p>Somos un equipo que cree en el talento mexicano y en el poder de construir juntos. Desde Pénjamo, damos forma a una nueva manera de movernos.</p><a href="#team" class="text-link">Conoce al equipo <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+        </div>
+        <figure class="about-hero-photo"><img src="img/1.jpg" alt="Equipo Photonix 7 junto a su vehículo en el Foro de Proveeduría Automotriz" width="1200" height="678" fetchpriority="high"><figcaption><span>Distintas ideas. Una misma dirección.</span><span>UPP / PÉNJAMO, MÉXICO</span></figcaption><span class="about-photo-tag">EL EQUIPO DETRÁS DEL 7</span></figure>
+        <div class="about-facts"><p>De las aulas a la pista.<br><span>El talento que nos mueve.</span></p><dl><div><dt>Estudiantes</dt><dd><span data-count="10">10</span></dd></div><div><dt>Asesores</dt><dd>02</dd></div><div><dt>Ingenierías</dt><dd>02</dd></div><div><dt>Propósito compartido</dt><dd>01</dd></div></dl></div>
+      </div>
+    </section>
+
+    <section class="section origin-section" id="origen" aria-labelledby="origin-title">
+      <div class="container origin-grid">
+        <div data-reveal><p class="eyebrow"><span class="section-number">01 /</span> Nuestra historia</p><h2 id="origin-title">El futuro tiene<br><span class="text-muted">un punto de partida.</span></h2><span class="origin-place"><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Pénjamo, Guanajuato · México</span></div>
+        <div class="origin-copy" data-reveal><p class="origin-lead">Todo comenzó con una pregunta:<br>¿y si lo construimos nosotros?</p><p>En las aulas de la Universidad Politécnica de Pénjamo, estudiantes de Ingeniería Mecatrónica y Automotriz aceptamos el reto de diseñar y construir un vehículo eléctrico de competencia desde cero.</p><p>Con la guía de dos asesores y el respaldo de nuestra comunidad, las ideas se convirtieron en planos, los planos en una estructura y la estructura en Photonix 7.</p><p>Cada conexión, cada soldadura y cada prueba llevan algo de quienes somos: curiosidad, compromiso y orgullo por nuestras raíces.</p>
+          <details class="campus-map"><summary><span><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Conoce nuestra universidad</span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2290.302271734898!2d-101.6551145878445!3d20.44155110995861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c6c5c61f00139%3A0x5ee452f82087a3c6!2sUniversidad%20Polit%C3%A9cnica%20de%20P%C3%A9njamo!5e0!3m2!1ses!2smx!4v1771106998538!5m2!1ses!2smx" title="Ubicación de la Universidad Politécnica de Pénjamo en Google Maps" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p>Universidad Politécnica de Pénjamo · Guanajuato, México</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity-section" id="identidad" aria-labelledby="identity-title">
+      <div class="container">
+        <div class="identity-heading" data-reveal><div><p class="eyebrow">Más que un nombre</p><h2 id="identity-title">Nuestra identidad.<br>Nuestra forma de avanzar.</h2></div><img src="img/logos/Photonix.svg" alt="Emblema del equipo Photonix 7" width="130" height="130" loading="lazy"></div>
+        <dl class="identity-grid" data-reveal><div><dt>P</dt><dd><strong>Pénjamo</strong>El lugar que nos inspira y que llevamos con nosotros.</dd></div><div><dt>Fotón</dt><dd><strong>Energía</strong>La luz como símbolo del movimiento que queremos crear.</dd></div><div><dt>—ix</dt><dd><strong>Herencia</strong>Una conexión con nuestras raíces e identidad mexicana.</dd></div><div><dt>7</dt><dd><strong>Unión</strong>Un equipo que convierte distintas capacidades en una sola fuerza.</dd></div></dl>
+      </div>
+    </section>
+
+    <section class="section team-section" id="team" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><p class="eyebrow"><span class="section-number">02 /</span> Nuestro equipo</p><h2 id="team-title">El talento detrás<br><span class="text-muted">de cada avance.</span></h2></div><p>10 estudiantes y 2 asesores.<br>La mecatrónica y la ingeniería automotriz trabajando por un mismo propósito.</p></div>
+        <div class="team-toolbar"><div class="team-filters" role="group" aria-label="Filtrar integrantes por área" hidden><button type="button" data-team-filter="all" aria-pressed="true" aria-controls="team-grid">Todo el equipo</button><button type="button" data-team-filter="mecatronica" aria-pressed="false" aria-controls="team-grid">Mecatrónica</button><button type="button" data-team-filter="automotriz" aria-pressed="false" aria-controls="team-grid">Automotriz</button><button type="button" data-team-filter="asesores" aria-pressed="false" aria-controls="team-grid">Asesores</button></div><p class="team-status" id="team-status" role="status" aria-live="polite"></p></div>
+        <div class="team-grid" id="team-grid"><article class="member-card" data-team="mecatronica" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">GR</span><span class="member-index">01 / P7</span></div>
+<p class="member-area">Mecatrónica</p><h3>Gustavo Romero</h3><p class="member-specialty">Líder · Electrónica</p>
+<p class="member-description">Diagnóstico de fallas y sistemas automatizados. Proyecto AC/DC ganador Expoemprende 2024.</p></article>
+<article class="member-card" data-team="mecatronica" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">NG</span><span class="member-index">02 / P7</span></div>
+<p class="member-area">Mecatrónica</p><h3>Nicole Gutiérrez</h3><p class="member-specialty">Programación · 3D</p>
+<p class="member-description">Programación, diseño 3D y soldadura electrónica. Evaluación de costos y viabilidad técnica.</p></article>
+<article class="member-card" data-team="mecatronica" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">CR</span><span class="member-index">03 / P7</span></div>
+<p class="member-area">Mecatrónica</p><h3>Christian Rodríguez</h3><p class="member-specialty">Eléctrica · Cableado</p>
+<p class="member-description">Diseño e instalación de componentes eléctricos, optimización energética.</p></article>
+<article class="member-card" data-team="automotriz" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">JA</span><span class="member-index">04 / P7</span></div>
+<p class="member-area">Automotriz</p><h3>José Alfredo Reyes</h3><p class="member-specialty">Diseño Mecánico</p>
+<p class="member-description">Modelado 3D, chasis y análisis estructural. Ensamblaje y simulaciones.</p></article>
+<article class="member-card" data-team="mecatronica" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">CG</span><span class="member-index">05 / P7</span></div>
+<p class="member-area">Mecatrónica</p><h3>Cesar Galván</h3><p class="member-specialty">Fabricación · Chasis</p>
+<p class="member-description">Soldadura, planos, selección de materiales y construcción del prototipo.</p></article>
+<article class="member-card" data-team="automotriz" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">TN</span><span class="member-index">06 / P7</span></div>
+<p class="member-area">Automotriz</p><h3>Timoteo Negrete</h3><p class="member-specialty">Piloto · Diseño</p>
+<p class="member-description">Diseño de chasis, montaje mecánico y piloto de pruebas en pista.</p></article>
+<article class="member-card" data-team="mecatronica" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">JG</span><span class="member-index">07 / P7</span></div>
+<p class="member-area">Mecatrónica</p><h3>Jorge González</h3><p class="member-specialty">Sistema Eléctrico</p>
+<p class="member-description">Circuitos de control y potencia, diagnóstico de fallas eléctricas.</p></article>
+<article class="member-card member-advisor" data-team="asesores" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">AR</span><span class="member-index">08 / P7</span></div>
+<p class="member-area">Asesoría y coordinación</p><h3>Alexis Robledo</h3><p class="member-specialty">Asesor · Mecatrónica</p>
+<p class="member-description">Asesor en mecánica, electricidad y electrónica. 13 años de experiencia.</p><p class="member-qualification">Ing. Electromecánico · Mtría. Mecatrónica</p></article>
+<article class="member-card member-advisor" data-team="asesores" data-reveal>
+<div class="member-top"><span class="member-initials" aria-hidden="true">JM</span><span class="member-index">09 / P7</span></div>
+<p class="member-area">Asesoría y coordinación</p><h3>José Mendoza</h3><p class="member-specialty">Coordinador</p>
+<p class="member-description">Coordinador y gestor de proyectos triple impacto.</p><p class="member-qualification">Ing. Industrial · Maestría</p></article></div>
+        <p class="team-footnote">Diferentes especialidades. La misma convicción: aprender, construir y avanzar juntos.</p>
+      </div>
+    </section>
+
+    <section class="project-section" id="proyecto" aria-labelledby="project-title">
+      <div class="container project-layout">
+        <div class="project-photo" data-reveal><img src="img/gallery/1.jpeg" alt="Vista lateral del vehículo eléctrico Photonix 7" width="1600" height="1204" loading="lazy"></div>
+        <div class="project-copy" data-reveal><p class="eyebrow">El resultado de trabajar juntos</p><h2 id="project-title">Una idea que<br>ya tiene <span>movimiento.</span></h2><p>Photonix 7 reúne diseño mecánico, electrónica y fabricación en un vehículo eléctrico de tres ruedas.</p><dl class="project-specs"><div><dt>Configuración</dt><dd>2 ruedas delanteras · 1 trasera motriz</dd></div><div><dt>Motor hub</dt><dd>QS 273 · 8,000 W nominales</dd></div><div><dt>Dimensiones</dt><dd>211 × 73.2 × 104 cm</dd></div><div><dt>Batería</dt><dd>LiFePO₄ · 51.2 V · 20 Ah · 1 kWh</dd></div><div><dt>Autonomía estimada</dt><dd>40 km</dd></div></dl><a href="vehiculo.html" class="text-link">Explora nuestro vehículo <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+      </div>
+    </section>
+
+    <section class="section competition-section" id="competencia" aria-labelledby="competition-title">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><p class="eyebrow"><span class="section-number">03 /</span> Un reto que nos mueve</p><h2 id="competition-title">Aprendemos creando.<br><span class="text-muted">Crecemos compitiendo.</span></h2></div><p>De E-Challenge Gto 2025 a nuevos retos en Electratón: cada encuentro es una oportunidad para llevar nuestra ingeniería más lejos.</p></div>
+        <div class="competition-grid">
+          <aside class="competition-card" aria-label="Temporada Electratón 2026" data-reveal><div class="competition-card-top"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg><span class="eyebrow">Temporada 2026</span></div><p class="competition-wordmark">ELECTRATÓN<span>MÉXICO</span></p><p>Diseño, construcción y competencia de vehículos eléctricos. Un espacio para poner a prueba lo que somos capaces de crear.</p><dl><div><dt>Edición</dt><dd>31.º aniversario</dd></div><div><dt>Participación del proyecto</dt><dd>Racer (RCR)</dd></div><div><dt>Objetivo del equipo</dt><dd>Top 10</dd></div></dl><details class="competition-rules"><summary>Categorías de la temporada <svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><p><strong>Racer (RCR):</strong> 6 kWh, baterías sin plomo y suspensión completa.</p><p><strong>Electratón B:</strong> 3.4 kWh, categoría de acceso.</p><p>Baterías de litio y velocidades de 60 a 120 km/h según la categoría. Referencia del proyecto: reglamento FIA / OMDAI.</p></details><span class="competition-location">México + Estados Unidos</span></aside>
+          <div class="calendar" data-reveal><div class="calendar-heading"><h3>Calendario 2026</h3><span>08 encuentros</span></div><details class="calendar-event"><summary><time datetime="2026-01-10"><span>10</span>ENE</time><span class="event-title"><strong>Formula E Mexico City ePrix</strong><span>Exhibición</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Autódromo Hermanos Rodríguez, CDMX</p><p>Podio: 1.º ULSA CDMX · 2.º ULSA Bajío · 3.º UPJR.</p></div></details>
+<details class="calendar-event"><summary><time datetime="2026-04-11"><span>11</span>ABR</time><span class="event-title"><strong>Ace Race TX Trophy</strong><span>Binacional</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>San Antonio, Texas · Estados Unidos</p><p>Apertura binacional con equipos de México y Estados Unidos.</p></div></details>
+<details class="calendar-event"><summary><time datetime="2026-05-16"><span>16</span>MAY</time><span class="event-title"><strong>Escrutinios Remotos</strong><span>Virtual</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Validación técnica online</p><p>Revisión técnica remota.</p></div></details>
+<details class="calendar-event"><summary><time datetime="2026-06-06"><span>06</span>JUN</time><span class="event-title"><strong>Toluca Wooden Trophy</strong><span>México</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Kartódromo La Marquesa, Estado de México</p><p>Primera carrera en territorio nacional.</p></div></details>
+<details class="calendar-event"><summary><time datetime="2026-07-25"><span>25</span>JUL</time><span class="event-title"><strong>Cuautla Summer Trophy</strong><span>México</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Kartódromo Internacional de Cuautla, Morelos</p><p>Encuentro del serial nacional.</p></div></details>
+<details class="calendar-event"><summary><time datetime="2026-08-28"><span>28</span>AGO</time><span class="event-title"><strong>Querétaro Bajío Trophy</strong><span>México</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Querétaro · circuito por definir</p><p>Encuentro del Bajío.</p></div></details>
+<details class="calendar-event"><summary><time datetime="2026-10-10"><span>10</span>OCT</time><span class="event-title"><strong>Guadalajara Western Trophy</strong><span>México</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Guadalajara, Jalisco</p><p>Encuentro del occidente.</p></div></details>
+<details class="calendar-event"><summary><time datetime="2026-11-13"><span>13–14</span>NOV</time><span class="event-title"><strong>Monterrey Mont e-Race Trophy</strong><span>Gran final</span></span><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><div class="event-details"><p><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Santiago, Monterrey</p><p>Gran final del campeonato 2026.</p></div></details></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section achievements-section" id="logros" aria-labelledby="achievements-title">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><p class="eyebrow"><span class="section-number">04 /</span> Nuestro recorrido</p><h2 id="achievements-title">Cada paso<br><span class="text-muted">deja una huella.</span></h2></div><p>Experiencias y reconocimientos que forman parte de la historia del equipo.</p></div>
+        <div class="achievements-layout"><ul class="achievement-list" data-reveal><li><span class="achievement-number">01</span><div><h3>Proyecto AC/DC</h3><p>Ganador de Expoemprende 2024.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></li>
+<li><span class="achievement-number">02</span><div><h3>Congreso de Ciencias CIO</h3><p>Proyecto seleccionado.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></li>
+<li><span class="achievement-number">03</span><div><h3>Ingeniería desde Pénjamo</h3><p>Diseño y construcción de un vehículo eléctrico.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></li>
+<li><span class="achievement-number">04</span><div><h3>Una comunidad que impulsa</h3><p>15 patrocinadores locales comprometidos.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></li>
+<li><span class="achievement-number">05</span><div><h3>Foro de Energías Limpias</h3><p>Participación en la edición 2025.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></li>
+<li><span class="achievement-number">06</span><div><h3>Premio Municipal de Juventud</h3><p>Reconocimiento al talento joven.</p></div><svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></li></ul><aside class="investment-card" data-reveal><span class="eyebrow">Del esfuerzo a la realidad</span><p class="investment-amount">$68,135<span>MXN</span></p><h3>Inversión total del proyecto</h3><p>Una construcción colectiva que reúne talento, trabajo y el respaldo de nuestra comunidad.</p><a href="#patrocinadores" class="text-link">Conoce a nuestros aliados <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></aside></div>
+      </div>
+    </section>
+
+    <section class="press-section" id="prensa" aria-labelledby="press-title">
+      <div class="container"><div class="section-heading" data-reveal><div><p class="eyebrow">El proyecto, más allá de la pista</p><h2 id="press-title">Una historia que<br>empieza a compartirse.</h2></div></div><div class="press-grid"><figure class="press-quote" data-reveal><span aria-hidden="true" class="quote-mark">“</span><blockquote>Estudiantes de la UPP crean el primer vehículo eléctrico de la región, un proyecto que promete poner a Pénjamo en el mapa de la innovación.</blockquote><figcaption>El Sol de Pénjamo</figcaption></figure>
+<figure class="press-quote" data-reveal><span aria-hidden="true" class="quote-mark">“</span><blockquote>Photonix 7: talento joven que electrifica el futuro. Conoce a los creadores del hiperdeportivo.</blockquote><figcaption>TV4 Guanajuato</figcaption></figure>
+<figure class="press-quote" data-reveal><span aria-hidden="true" class="quote-mark">“</span><blockquote>Un diseño audaz y tecnología de punta hecha por estudiantes mexicanos.</blockquote><figcaption>Revista Automotriz</figcaption></figure></div></div>
+    </section>
+
+    <section class="section partners-section" id="patrocinadores" aria-labelledby="partners-title">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><p class="eyebrow"><span class="section-number">05 /</span> Nuestra comunidad</p><h2 id="partners-title">Hay quienes creen.<br><span class="text-muted">Y nos ayudan a crear.</span></h2></div><p>15 aliados locales que apostaron por el talento joven y la movilidad eléctrica. Gracias por ser parte de Photonix 7.</p></div>
+        <ul class="partners-grid" aria-label="Patrocinadores del proyecto" data-reveal><li><div class="partner-logo"><img src="img/logos/hacienda.svg" alt="" width="160" height="80" loading="lazy"></div><span>Hacienda Corralejo</span></li>
+<li><div class="partner-logo"><img src="img/logos/la%20caldera.svg" alt="" width="160" height="80" loading="lazy"></div><span>La Caldera</span></li>
+<li><div class="partner-logo"><img src="img/logos/multico.svg" alt="" width="160" height="80" loading="lazy"></div><span>Multico</span></li>
+<li><div class="partner-logo"><img src="img/logos/Turbomaquinas.svg" alt="" width="160" height="80" loading="lazy"></div><span>Turbomáquinas</span></li>
+<li><div class="partner-logo"><img src="img/logos/cs%20(1).svg" alt="" width="160" height="80" loading="lazy"></div><span>Carnicería Sánchez</span></li>
+<li><div class="partner-logo"><img src="img/logos/los%20juanes.svg" alt="" width="160" height="80" loading="lazy"></div><span>Carnicería Los Juanes</span></li>
+<li><div class="partner-logo"><img src="img/logos/el%20rosal.svg" alt="" width="160" height="80" loading="lazy"></div><span>Invernaderos el Rosal</span></li>
+<li><div class="partner-logo"><img src="img/logos/pemex.svg" alt="" width="160" height="80" loading="lazy"></div><span>PEMEX Arias</span></li>
+<li><div class="partner-logo"><img src="img/logos/Reciclalo.svg" alt="" width="160" height="80" loading="lazy"></div><span>Recicla.lo</span></li>
+<li><div class="partner-logo"><img src="img/logos/sigma.svg" alt="" width="160" height="80" loading="lazy"></div><span>Sigma Alimentos</span></li>
+<li><div class="partner-logo"><img src="img/logos/gruas.svg" alt="" width="160" height="80" loading="lazy"></div><span>Grúas Sálias</span></li>
+<li><div class="partner-logo"><img src="img/logos/agricultor%20(1).svg" alt="" width="160" height="80" loading="lazy"></div><span>Ferretería El Agricultor</span></li>
+<li><div class="partner-logo"><img src="img/logos/carrillo.svg" alt="" width="160" height="80" loading="lazy"></div><span>Refaccionaria Carrillo</span></li>
+<li><div class="partner-logo"><img src="img/logos/flow.svg" alt="" width="160" height="80" loading="lazy"></div><span>Flow Music</span></li>
+<li><div class="partner-logo"><img src="img/logos/sunsteel.svg" alt="" width="160" height="80" loading="lazy"></div><span>Sunsteel</span></li></ul>
+        <details class="partner-contributions"><summary>Aportaciones al proyecto <svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></summary><dl><div><dt>Hacienda Corralejo</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>La Caldera</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Multico</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Turbomáquinas</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Carnicería Sánchez</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Carnicería Los Juanes</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Invernaderos el Rosal</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>PEMEX Arias</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Recicla.lo</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Sigma Alimentos</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Grúas Sálias</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Ferretería El Agricultor</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Refaccionaria Carrillo</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Flow Music</dt><dd>$1,000 <span>MXN</span></dd></div>
+<div><dt>Sunsteel</dt><dd>$1,000 <span>MXN</span></dd></div></dl></details>
+      </div>
+    </section>
+
+    <section class="about-closing" aria-labelledby="closing-title"><div class="container about-closing-inner" data-reveal><div><p class="eyebrow">El siguiente capítulo se construye juntos</p><h2 id="closing-title">Somos Photonix 7.<br><span>Y esto apenas comienza.</span></h2><p>Conoce lo que estamos creando y lleva contigo<br>una parte de nuestra historia.</p></div><div class="closing-actions"><a href="vehiculo.html" class="button button-primary">Descubre el vehículo <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><a href="tienda.html" class="text-link">Visita la tienda oficial <svg class="icon" aria-hidden="true"><use href="#icon-diagonal"/></svg></a></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><div class="footer-main">
+    <div class="footer-brand"><a class="wordmark" href="index.html" aria-label="Photonix 7, inicio">PHOTONIX<span>7</span><i aria-hidden="true"></i></a><p>Ingeniería con identidad.<br>Energía que transforma.</p><span class="footer-origin"><span class="status-dot" aria-hidden="true"></span>Pénjamo, Guanajuato, México</span></div>
+    <nav class="footer-column" aria-label="Explora el proyecto"><h3>Explora</h3><a href="index.html">Inicio</a><a href="vehiculo.html">Nuestro vehículo</a><a href="index.html#gallery">Galería</a><a href="tienda.html">Tienda oficial</a></nav>
+    <nav class="footer-column" aria-label="Conoce al equipo"><h3>Conócenos</h3><a href="#origen">Nuestra historia</a><a href="#team">El equipo</a><a href="#competencia">Competencia</a><a href="#patrocinadores">Nuestros aliados</a></nav>
+    <div class="footer-column"><h3>Desde nuestras raíces</h3><span>Universidad Politécnica<br>de Pénjamo</span><span>Ingeniería Mecatrónica<br>e Ingeniería Automotriz</span></div>
+  </div><div class="footer-bottom"><p>© <span id="current-year">2026</span> Photonix 7. Todos los derechos reservados.</p><a href="index.html">Ingeniería que mueve el futuro</a><a href="#nos-hero" class="back-top">Volver arriba <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></div></footer>
+</body>
 </html>
